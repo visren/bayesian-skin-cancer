@@ -1,20 +1,45 @@
 ---
-title: "final_proj_testing_chunked"
+title: "Lee 2020, Updated"
 output: html_document
-date: "2024-11-20"
+date: "2024-12-04"
 ---
 
-```{r load_data, cache=T}
+Most of this is copied from the original `.R` file, but updates had to be made to make it usable since some packages are no longer updated. I'll add a few notes throughout to note the changes from the original. I also chunked the file for readability and ease of loading. -Gillian
+
+Also added this one:
+
+```{r load_packages, output = F, echo = F}
+if(!require("pacman"))
+  install.packages("pacman")
+
+pacman::p_load(
+  dplyr,
+  GGally,
+  ggplot2,
+  # Must use sf instead of rgdal--
+  sf,
+  leaflet,
+  spdep,
+  CARBayesST,
+  coda
+)
+```
+
+## Data and exploratory analysis
+
+```{r data_load}
+## Added seeds throughout -Gillian
+set.seed(1)
+
 ############################
 #### R code for the tutorial
 ############################
 
-set.seed(1)
 ##############################################
 #### Section 3 - Data and exploratory analysis
 ##############################################
 #### Read in the data
-dat <- read.csv(file="Spatio-temporal-modelling-tutorials-master/EnglandLUAdata.csv")
+dat <- read.csv(file="Lee_2020/EnglandLUAdata.csv")
 head(dat, n=3)
 
 
@@ -26,6 +51,10 @@ summary(dat[ ,4:7])
 library(dplyr)
 dat <- dat %>% mutate(SMR=dat$Y/dat$E)
 
+```
+
+```{r data_explore}
+set.seed(1)
 
 #### Scatterplot
 library(GGally)
@@ -42,27 +71,34 @@ ggplot(dat, aes(x = factor(Year), y = SMR)) +
 ```
 
 
-```{r spatial_obj, cache=T}
+```{r map_data}
 set.seed(1)
-
 
 #### Read in the spatial object
 # library(rgdal)
 # LA <- readOGR(dsn = "LocalAuthorities.shp")
+## Had to change to use sf. -Gillian
 library(sf)
-LA <- st_read("Spatio-temporal-modelling-tutorials-master/LocalAuthorities.shp")
+LA <- st_read("Lee_2020/LocalAuthorities.shp")
 
 
 #### Compute the average SMR for each year
 by_LA <- group_by(dat, Code)
 averageSMR <- summarize(by_LA, SMR = mean(SMR, na.rm=T))
+```
 
+The following chunk is optional. It's just for exploring the data with an interactive leaflet map.
+
+```{r map_leaflet}
+set.seed(1)
 
 #### Merge the data and shapefile
 library(leaflet)
 averageSMR.LA <- merge(x=LA, y=averageSMR, by.x="lad09cd", by.y="Code", all.x=FALSE)
+## Had to modify to use proper sf references. -Gillian
 # averageSMR.LA.ll <- spTransform(averageSMR.LA, CRS("+proj=longlat +datum=WGS84 +no_defs"))
 averageSMR.LA.ll <- st_transform(averageSMR.LA, crs = "+proj=longlat +datum=WGS84 +no_defs")
+## rgdal stored things differently I guess. -Gillian
 # variable <- averageSMR.LA.ll@data$SMR
 variable <- averageSMR.LA.ll$SMR
 colours <- colorNumeric(palette = "YlOrBr", domain = variable, reverse=FALSE)
@@ -75,8 +111,12 @@ leaflet(data=averageSMR.LA.ll) %>%
     addLegend(pal = colours, values = variable, 
               opacity = 1, title="SMR") %>%
     addScaleBar(position="bottomleft")
+```
 
+The following chunk takes a little bit of time to process (but still >1 min).
 
+```{r model_poisson}
+set.seed(1)
 
 #### Fit a simple Poisson log-linear model
 model1 <- glm(formula=Y~offset(log(E)) + IMD + PM25, family="poisson", data=dat)
@@ -91,6 +131,7 @@ residuals2010.LA <- merge(x=LA, y=residuals2010, by.x="lad09cd", by.y="Code", al
 
 #### Construct the spatial objects
 library(spdep)
+## Another minor fix here. --Gillian
 # W.nb <- poly2nb(residuals2010.LA, row.names = residuals2010.LA@data$lad09cd)
 W.nb <- poly2nb(residuals2010.LA, row.names = residuals2010.LA$lad09cd)
 W <- nb2mat(W.nb, style = "B")
@@ -103,9 +144,11 @@ moran.mc(x = residuals2010.LA$residuals, listw = W.list, nsim = 10000)
 
 ```
 
+## Spatio-temporal modelling and convergence assessment
 
-```{r st_modeling, cache=T}
+```{r model_st_setup}
 set.seed(1)
+
 #####################################################################
 #### Section 4 - Spatio-temporal modelling and convergence assessment
 #####################################################################
@@ -114,17 +157,36 @@ set.seed(1)
 lookup <- data.frame(Code=residuals2010.LA$lad09cd, spatialorder=1:nrow(residuals2010.LA))
 dat.temp <- merge(x=dat, y=lookup, by="Code")
 dat.ordered <- arrange(dat.temp, Year, spatialorder)
+```
 
+**Heads up**, this chunk takes a LOT of time and memory. I didn't end up running it since I estimated it would take just under 11 hours, so I modified a mini version below (so note that the outputs aren't very good).
+
+If you want to run the whole thing, just remove the pound signs:
+
+```{r model_st_chain, eval=F}
+set.seed(1)
 
 #### Fit the model
-library(CARBayesST)
+# library(CARBayesST)
 # chain1 <- ST.CARar(formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
 # chain2 <- ST.CARar(formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
 # chain3 <- ST.CARar(formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
 ```
 
-```{r chain1_mini, eval=F, echo=F}
-# This isn't part of the analysis, just some time tests to see how long it takes
+Mini chain version, should take a couple of minutes to run. And result in R taking >1 GiB of memory.
+
+```{r chain_short}
+set.seed(1)
+library(CARBayesST)
+chain1 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
+chain2 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
+chain3 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
+```
+
+```{r chain_mini_testing, eval=F, echo=F}
+#####
+## This ISN'T part of the analysis, just some time tests to see how long it would take.
+#####
 set.seed(1)
 
 #calculate time at start of code block
@@ -142,32 +204,12 @@ print((total_time * 1000)/60)
 print(((total_time*1000)/60)/60)
 print(((total_time*1000)/60)/60 * 3)
 remove(start_time, end_time, total_time, chain1)
-# end
+#####
+# end of tests
+#####
 ```
 
-```{r chain_short, cache=F}
-set.seed(1)
-chain1 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
-chain2 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
-chain3 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=400, n.sample=4400, thin=2, verbose=FALSE)
-```
-
-```{r chain1, eval=F, echo=F}
-set.seed(1)
-chain1 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
-```
-
-```{r chain2, eval=F, echo=F}
-set.seed(1)
-chain2 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
-```
-
-```{r, chain3, eval=F, echo=F}
-set.seed(1)
-chain3 <- ST.CARar(AR = 1, formula=Y~offset(log(E)) + PM25 + IMD, family="poisson", data=dat.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE)
-```
-
-```{r convergence, cache=T}
+```{r convergence}
 set.seed(1)
 #### Check convergence - traceplot
 library(coda)
@@ -176,16 +218,17 @@ plot(beta.samples)
 
 
 #### Check convergence - Gelman-Rubin plot
+## Getting an error with this when using the mini chain. -Gillian
 # gelman.diag(beta.samples)
 
 
 #### Model summary
 print(chain1)
-
-
 ```
 
-```{r inference, cache=T}
+## Inference
+
+```{r inference}
 set.seed(1)
 ##########################
 #### Section 5 - Inference
@@ -196,14 +239,16 @@ sd(dat.ordered$IMD)
 beta.samples.combined <- rbind(chain1$samples$beta, chain2$samples$beta, chain3$samples$beta)
 round(quantile(exp(sd(dat.ordered$PM25) * beta.samples.combined[ ,2]), c(0.5, 0.025, 0.975)),3)
 round(quantile(exp(sd(dat.ordered$IMD) * beta.samples.combined[ ,3]), c(0.5, 0.025, 0.975)),3)
+```
 
+```{r inference_risk_trends}
+set.seed(1)
 
 #### Compute the risk distributions
 fitted.samples.combined <- rbind(chain1$samples$fitted, chain2$samples$fitted, chain3$samples$fitted)
 n.samples <- nrow(fitted.samples.combined)
 n.all <- ncol(fitted.samples.combined)
 risk.samples.combined <- fitted.samples.combined / matrix(rep(dat.ordered$E, n.samples), nrow=n.samples, ncol=n.all, byrow=TRUE) 
-
 
 #### Compute the areal unit average risk for each year
 N <- length(table(dat.ordered$Year))
@@ -226,21 +271,25 @@ ggplot(time.trends, aes(x = factor(Year), y = Median, group=1)) +
     scale_x_discrete(name = "Year", breaks=c(2002, 2005, 2008, 2011, 2014, 2017), labels=c("2002", "2005", "2008", "2011", "2014", "2017")) +
     scale_y_continuous(name = "Risk") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
+```
 
+
+```{r inference_map_preparation}
+set.seed(1)
 
 #### Spatial pattern in disease risk in the last year - mean and PEP
 risk.samples.2010 <- risk.samples.combined[ ,dat.ordered$Year==2010]
 risk.2010 <- apply(risk.samples.2010, 2, median)
 pep.2010 <- apply(risk.samples.2010 > 1, 2, mean)
-
-
 #### Map the results
 residuals2010.LA$risk.2010 <- risk.2010
 residuals2010.LA$pep.2010 <- pep.2010
 # residuals2010.LA.ll <- spTransform(residuals2010.LA, CRS("+proj=longlat +datum=WGS84 +no_defs"))
 residuals2010.LA.ll <- st_transform(residuals2010.LA, crs="+proj=longlat +datum=WGS84 +no_defs")
+```
 
-
+```{r inference_map_risk}
+set.seed(1)
 
 # colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll@data$risk.2010, reverse=FALSE)
 colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll$risk.2010, reverse=FALSE)
@@ -253,8 +302,10 @@ leaflet(data=residuals2010.LA.ll) %>%
     addLegend(pal = colours, values = risk.2010, 
               opacity = 1, title="Risk") %>%
     addScaleBar(position="bottomleft")
+```
 
-
+```{r inference_map_pep}
+set.seed(1)
 # colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll@data$pep.2010, reverse=FALSE)
 colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll$pep.2010, reverse=FALSE)
 leaflet(data=residuals2010.LA.ll) %>% 
@@ -266,8 +317,10 @@ leaflet(data=residuals2010.LA.ll) %>%
     addLegend(pal = colours, values = pep.2010, 
               opacity = 1, title="PEP") %>%
     addScaleBar(position="bottomleft")
+```
 
-
+```{r inference_risk}
+set.seed(1)
 
 #### Compute the median risk for each area
 risk.median <- apply(risk.samples.combined, 2, median)
@@ -277,7 +330,5 @@ ggplot(data.frame(inequality, Year=names(inequality)), aes(x = factor(Year), y =
     scale_x_discrete(name = "Year", breaks=c(2002, 2005, 2008, 2011, 2014, 2017), labels=c("2002", "2005", "2008", "2011", "2014", "2017")) +
     scale_y_continuous(name = "Inequality") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
-
-
 ```
 
