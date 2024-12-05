@@ -13,6 +13,8 @@ if(!require("pacman"))
   install.packages("pacman")
 
 pacman::p_load(
+  # need here for loading data to all systems
+  here,
   dplyr,
   GGally,
   ggplot2,
@@ -39,7 +41,9 @@ set.seed(1)
 #### Section 3 - Data and exploratory analysis
 ##############################################
 #### Read in the data
-dat <- read.csv(file="Lee_2020/EnglandLUAdata.csv")
+# dat <- read.csv(file="Lee_2020/EnglandLUAdata.csv")
+## Gernalizing file path to all systems. -Gillian
+dat <- read.csv(file = here("Lee_2020", "EnglandLUAdata.csv"))
 head(dat, n=3)
 
 
@@ -79,7 +83,9 @@ set.seed(1)
 # LA <- readOGR(dsn = "LocalAuthorities.shp")
 ## Had to change to use sf. -Gillian
 library(sf)
-LA <- st_read("Lee_2020/LocalAuthorities.shp")
+# LA <- st_read("Lee_2020/LocalAuthorities.shp")
+## Gernalizing file path to all systems. -Gillian
+LA <- st_read(here("Lee_2020", "LocalAuthorities.shp"))
 
 
 #### Compute the average SMR for each year
