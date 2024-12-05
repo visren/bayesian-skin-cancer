@@ -4,9 +4,13 @@ output: html_document
 date: "2024-12-04"
 ---
 
-Most of this is copied from the original `.R` file, but updates had to be made to make it usable since some packages are no longer updated. I'll add a few notes throughout to note the changes from the original. I also chunked the file for readability and ease of loading. -Gillian
+Most of this is copied from the original `.R` file, but updates had to be made to make it usable since some packages are no longer updated. I'll add a few notes throughout to note the changes from the original. I also chunked the file for readability and ease of loading.
 
-Also added this one:
+Still may be a bit too big to knit so I'd skip that.
+
+-Gillian
+
+Also added this chunk:
 
 ```{r load_packages, output = F, echo = F}
 if(!require("pacman"))
