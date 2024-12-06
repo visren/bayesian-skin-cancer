@@ -75,8 +75,12 @@ data_race_w <- data_race |>
 
 Uniting the data.
 
+Some states are `Missing` cancer count data for some years (not just 0), so they will be dropped.
+Note that instances of a cancer count of 0 will have an `NA` for `cancer_age_adj_rate` and `cancer_crude_rate`.
+
 ```{r combine}
 data_full <- data_cancer |> 
+  drop_na(count) |> 
   inner_join(data_race_w, by = join_by(year, state_code)) |> 
   inner_join(select(data_sunlight, !state), by = join_by(year, state_code)) |> 
   arrange(year, state_code) |> 
@@ -112,5 +116,4 @@ data_us <- us_map(include = c(as.character(include_states)))
 ```{r save_data}
 saveRDS(data_full, file = here("data", "data_full.rds"))
 ```
-
 
