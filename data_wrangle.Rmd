@@ -21,12 +21,8 @@ pacman::p_load(
 ```{r load}
 data_cancer <- read.table(here("data", "cancer.txt"), header = TRUE)
 data_race <- read.table(here("data", "race.txt"), header = TRUE)
-# data_race_supp <- read.table(here("data", "race_supp.txt"), header = TRUE)
 data_sunlight <- read.table(here("data", "sunlight.txt"), header = TRUE)
 ```
-
-`data_race_supp` is because the census has adjusted its categorization, so 2021 was missing from `data_race`.
-_Update: sunlight data only goes to 2011 so this didn't matter..._
 
 ```{r cleanup}
 clean_data <- function(input_data){
@@ -55,13 +51,11 @@ clean_data <- function(input_data){
 
 data_cancer <- clean_data(data_cancer) |> select(!population)
 data_race <- clean_data(data_race)
-# data_race_supp <- clean_data(data_race_supp) |> filter(race_code != 999)
 data_sunlight <- clean_data(data_sunlight)
 ```
 
 
 ```{r index}
-# data_race_w <- rbind(data_race, data_race_supp) |> 
 data_race_w <- data_race |> 
   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
   group_by(state_code, year, race_w) |>
@@ -105,7 +99,7 @@ I used the FIPS code (`fips`) throughout, but using the regular state names (`fu
 
 Not all states have sunlight data, so I removed those from the map.
 
-D.C. (and AK, which also doesn't have sunlight data) have a greater population of non-White folks, so if this one index number is messing with the analysis we could consider dropping it.
+D.C. has a greater population of non-White folks, so it's the only one with a `proportion_white` $< 0.5$. This is also true for Alaska but it's dropped anyway because it's missing sunlight data. Hawaii is also missing sunlight data.
 
 ```{r shape_files}
 include_states <- unique(data_full$fips)
