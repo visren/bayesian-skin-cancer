@@ -1,0 +1,317 @@
+---
+title: "data_wrangle"
+output: html_document
+date: "2024-12-06"
+---
+
+```{r setup, include=FALSE}
+if(!require("pacman"))
+  install.packages("pacman")
+
+pacman::p_load(
+  # need here for loading data to all systems
+  here,
+  dplyr,
+  tidyr,
+  # Must use sf instead of rgdal--
+  sf,
+  maps,
+  janitor
+  # leaflet,
+  # spdep,
+  # CARBayesST,
+  # coda
+)
+```
+
+
+```{r data_load}
+data_cancer <- read.table(here("data", "cancer.txt"), header = TRUE)
+data_race <- read.table(here("data", "race.txt"), header = TRUE)
+data_race_supp <- read.table(here("data", "race_supp.txt"), header = TRUE)
+data_sunlight <- read.table(here("data", "sunlight.txt"), header = TRUE)
+```
+
+Some of the data does not match or is missing, so comp
+
+```{r data_cleanup}
+clean_data <- function(input_data){
+  na_vals <- c("Missing", "Not Applicable", "Not Available")
+  int_cols <- c("states_code", "year")
+  numeric_cols <- c("count", "population", "age_adjusted_rate", "crude_rate")
+  rename_cols <- c(
+    "state_code" = "states_code",
+    "state" = "states",
+    "year" = "yearly_july_1st_estimates",
+    "year_code" = "yearly_july_1st_estimates_code"
+    )
+  
+  cleaned_data <- input_data |> 
+    clean_names() |> 
+    rename(any_of(rename_cols)) |> 
+    select(!any_of("year_code")) |> 
+    mutate(
+      across(everything(), ~replace(., . %in% na_vals, NA)),
+      across(any_of(int_cols), ~as.integer(.)),
+      across(any_of(numeric_cols), ~as.numeric(.))
+    )
+  
+  return(cleaned_data)
+}
+
+data_cancer <- clean_data(data_cancer) |> select(!population)
+data_race <- clean_data(data_race)
+data_race_supp <- clean_data(data_race_supp) |> filter(race_code != 999)
+data_sunlight <- clean_data(data_sunlight)
+```
+
+
+```{r}
+# data_race_w <- data_race |>
+#   ungroup() |> 
+#   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
+#   group_by(state_code, year, race_w) |>
+#   summarize(population = sum(population, na.rm = TRUE)) |> 
+#   pivot_wider(values_from = population, names_from = race_w) |> 
+#   mutate(
+#     total_pop = non_white + white,
+#     prop_white = white/total_pop
+#   )
+# 
+# data_race_supp_w <- data_race_supp |>
+#   filter(!year %in% unique(data_race$year)) |> 
+#   ungroup() |>
+#   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
+#   group_by(state_code, year, race_w) |>
+#   summarize(population = sum(population, na.rm = TRUE)) |> 
+#   pivot_wider(values_from = population, names_from = race_w) |> 
+#   mutate(
+#     total_pop = non_white + white,
+#     prop_white = white/total_pop
+#   )
+
+data_race_all <- rbind(data_race, data_race_supp) |> 
+  mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
+  group_by(state_code, year, race_w) |>
+  summarize(population = sum(population, na.rm = TRUE)) |> 
+  pivot_wider(values_from = population, names_from = race_w) |> 
+  mutate(
+    total_pop = non_white + white,
+    prop_white = white/total_pop
+  )
+
+```
+
+```{r}
+data_full <- data_cancer |> 
+  inner_join(data_race_all, by = join_by(year, state_code)) |> 
+  inner_join(select(data_sunlight, !state), by = join_by(year, state_code)) |> 
+  arrange(year, state_code) |> 
+  select(
+    year,
+    fips = state_code,
+    state,
+    cancer_count = count,
+    proportion_white = prop_white,
+    sunlight_daily_avg = avg_daily_sunlight_kj_m2,
+    cancer_age_adj_rate = age_adjusted_rate,
+    cancer_crude_rate = crude_rate,
+    population_total = total_pop,
+    population_non_white = non_white,
+    population_white = white,
+    everything()
+  ) |> 
+  mutate(fips = sprintf("%02s", as.character(fips)))
+```
+
+Not all states have sunlight data.
+D.C. (and AK, which doesn't have sunlight data) have a greater population of non-White folks, so if this one index number is messing with the analysis we could consider dropping it.
+
+```{r data_sf}
+
+include_states <- unique(data_full$fips)
+
+data_us <- usmap::us_map(include = c(as.character(include_states)))
+```
+
+I used the FIPS code (`fips`) throughout, but using the regular state names (`full` in `data_us` shape file, `state` in others) should also work fine when uniting data.
+
+
+
+```{r}
+data_race_w <- data_race |> 
+  ungroup() |> 
+  mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
+  group_by(state_code, year, race_w) |>
+  summarize(population = sum(population, na.rm = TRUE))
+
+data_race_w |> 
+  group_by(state_code, year) |>
+  mutate(
+    # pop = sum(population),
+    # pop_denom = pop*(pop-1),
+    pop_n = population*(population-1)
+  ) |> 
+  summarize(
+    pop = sum(population),
+    pop_denom = pop*(pop-1),
+    index = 1- sum(pop_n)/pop_denom
+  ) |> 
+  ggplot(aes(x = index, y = year, color = factor(state_code))) +
+  geom_point() +
+  geom_path() +
+  geom_vline(xintercept=0) +
+  # scale_x_continuous(limits = c(0, 1.0)) +
+  theme(legend.position="none") +
+  labs(title = "Simpson")
+
+data_race_w |> 
+  group_by(state_code, year) |> 
+  mutate(
+    prop = population/sum(population),
+    nat_log = log(prop),
+    sw = prop*nat_log
+  ) |> 
+  summarize(index = -(sum(sw))) |> 
+  ggplot(aes(x = index, y = year, color = factor(state_code))) +
+  geom_point() +
+  geom_path() +
+  geom_vline(xintercept=0) +
+  # scale_x_continuous(limits = c(0, 1.0)) +
+  theme(legend.position="none") +
+  labs(title = "ShannonWiener")
+  
+
+data_race_w |> 
+  pivot_wider(values_from = population, names_from = race_w) |> 
+  # filter(state_code %in% exclude_states) |> 
+  mutate(
+    index_w = non_white/white
+  ) |> 
+  # filter(index_w < 1) |> 
+  group_by(state_code, year) |> 
+  ggplot(aes(x = index_w, y = year, color = factor(state_code))) +
+  geom_point() + 
+  geom_path() +
+  geom_vline(xintercept=0) +
+  # scale_x_continuous(limits = c(0, 1.0)) +
+  theme(legend.position="none") +
+  labs(title = "Basic")
+```
+
+```{r}
+library(tidyverse)
+data_race_w |> 
+  pivot_wider(values_from = pop, names_from=race_w) |> 
+  mutate(
+    diff = White-NonWhite,
+    perc = 100*(diff/(White+NonWhite))
+  ) |> 
+  filter(diff < 0) |> ungroup() |> distinct(state_code)
+  ggplot(aes(x = perc, y = year)) +
+  geom_point()
+```
+
+
+```{r}
+refactor_data <- function(input_data){
+  refactored_data <- input_data |> 
+    ungroup() |> 
+    mutate(race_w = ifelse(race == "White", "White", "NonWhite")) |> 
+    group_by(state_code, year, race_w) |>
+    summarize(pop = sum(population, na.rm = T))
+  
+  return(refactored_data)
+}
+
+data_cancer_w <- refactor_data(data_cancer)
+data_race_w <- refactor_data(data_race)
+data_race_supp_w <- refactor_data(data_race_supp)
+```
+
+```{r}
+library(ggplot2)
+full_join(
+  data_race |> group_by(state, year) |> summarize(pop = sum(population, na.rm=T)),
+  data_cancer |> group_by(state, year) |> summarize(pop = sum(population, na.rm=T)),
+  by = join_by("state", "year"),
+  suffix = c("_r", "_c")
+) |> 
+  mutate(
+    diff = pop_c-pop_r,
+    perc = 100*(diff/(pop_c+pop_r))
+  ) |> 
+  filter(diff != 0) |> 
+  filter(perc > 0) |> 
+  ggplot(aes(x=year, y = perc, color = state)) +
+  geom_point() +
+  theme(legend.position="None")
+```
+
+
+```{r}
+full_join(data_cancer_w, data_race_w, by = join_by("state_code", "year", "race_w"), suffix = c("_c", "_r")) |> 
+  ungroup() |> 
+  filter(year %in% unique(data_race$year)) |> 
+  group_by(year, race_w) |> 
+  # filter(if_any(everything(), is.na)) |> distinct(year) |> group_by(year) |> summarize(n()) |> arrange(desc(year))
+  summarize(pop_c = sum(pop_c, na.rm=T), pop_r = sum(pop_r, na.rm=T)) |> 
+  mutate(
+    diff = pop_c-pop_r,
+    perc = 100*(diff/(pop_c+pop_r))
+  ) |> 
+  filter(perc != 0) |> 
+  ggplot2::ggplot(ggplot2::aes(x = perc, y = year)) +
+  ggplot2::facet_wrap(~race_w) +
+  ggplot2::geom_point()
+```
+
+
+
+
+`cancer` has additional "Other Races and Unknown combined"
+`race` uses API designation, `race_supp` uses 
+
+```{r data_population}
+"2131-1"
+
+full_join(
+  select(cancer, state_code, race, year, population),
+  select(race, state_code, race, year, population),
+  by = join_by(state_code, race, year),
+  suffix = c("_c", "_r")
+  ) |> head()
+  # group_by(race) |> 
+  summarize(n())
+  
+  filter(if_any("population_r", is.na)) |> 
+  group_by(race_code) |> 
+  summarize(n())
+  # mutate(
+  #   "noMatch" = ifelse(population_c != population_r, T, NA)
+  # ) |> View()
+```
+
+```{r}
+full_join(
+  race |> filter(year %in% unique(race_supp$year)) |> select(state_code, year, race, population),
+  race_supp |> filter(race_code != 999) |> select(state_code, year, race, population),
+  by = join_by(state_code, year, race),
+  suffix = c("_r", "_a")
+  ) |> 
+  # filter(if_any(everything(), is.na))  |> 
+  group_by(race) |> 
+  summarize(mean_r = mean(population_r, na.rm=T), mean_a = mean(population_a, na.rm=T))
+  # pull(mean_a) |> sum(na.rm=T)
+
+race |> 
+  filter(race == "White") |> summarize(mean(population, na.rm=T))
+
+race_supp |> 
+  filter(race == "Not Available")
+
+race_supp |> group_by(race) |> summarize(pop = mean(population, na.rm=T))
+  filter(year %in% unique(race_supp$year)) |> 
+  distinct(race)
+```
+
