@@ -13,28 +13,22 @@ pacman::p_load(
   here,
   dplyr,
   tidyr,
-  # Must use sf instead of rgdal--
-  sf,
-  maps,
+  usmap,
   janitor
-  # leaflet,
-  # spdep,
-  # CARBayesST,
-  # coda
 )
 ```
 
-
-```{r data_load}
+```{r load}
 data_cancer <- read.table(here("data", "cancer.txt"), header = TRUE)
 data_race <- read.table(here("data", "race.txt"), header = TRUE)
-data_race_supp <- read.table(here("data", "race_supp.txt"), header = TRUE)
+# data_race_supp <- read.table(here("data", "race_supp.txt"), header = TRUE)
 data_sunlight <- read.table(here("data", "sunlight.txt"), header = TRUE)
 ```
 
-Some of the data does not match or is missing, so comp
+`data_race_supp` is because the census has adjusted its categorization, so 2021 was missing from `data_race`.
+_Update: sunlight data only goes to 2011 so this didn't matter..._
 
-```{r data_cleanup}
+```{r cleanup}
 clean_data <- function(input_data){
   na_vals <- c("Missing", "Not Applicable", "Not Available")
   int_cols <- c("states_code", "year")
@@ -61,36 +55,14 @@ clean_data <- function(input_data){
 
 data_cancer <- clean_data(data_cancer) |> select(!population)
 data_race <- clean_data(data_race)
-data_race_supp <- clean_data(data_race_supp) |> filter(race_code != 999)
+# data_race_supp <- clean_data(data_race_supp) |> filter(race_code != 999)
 data_sunlight <- clean_data(data_sunlight)
 ```
 
 
-```{r}
-# data_race_w <- data_race |>
-#   ungroup() |> 
-#   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
-#   group_by(state_code, year, race_w) |>
-#   summarize(population = sum(population, na.rm = TRUE)) |> 
-#   pivot_wider(values_from = population, names_from = race_w) |> 
-#   mutate(
-#     total_pop = non_white + white,
-#     prop_white = white/total_pop
-#   )
-# 
-# data_race_supp_w <- data_race_supp |>
-#   filter(!year %in% unique(data_race$year)) |> 
-#   ungroup() |>
-#   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
-#   group_by(state_code, year, race_w) |>
-#   summarize(population = sum(population, na.rm = TRUE)) |> 
-#   pivot_wider(values_from = population, names_from = race_w) |> 
-#   mutate(
-#     total_pop = non_white + white,
-#     prop_white = white/total_pop
-#   )
-
-data_race_all <- rbind(data_race, data_race_supp) |> 
+```{r index}
+# data_race_w <- rbind(data_race, data_race_supp) |> 
+data_race_w <- data_race |> 
   mutate(race_w = ifelse(race == "White", "white", "non_white")) |> 
   group_by(state_code, year, race_w) |>
   summarize(population = sum(population, na.rm = TRUE)) |> 
@@ -99,12 +71,13 @@ data_race_all <- rbind(data_race, data_race_supp) |>
     total_pop = non_white + white,
     prop_white = white/total_pop
   )
-
 ```
 
-```{r}
+Uniting the data.
+
+```{r combine}
 data_full <- data_cancer |> 
-  inner_join(data_race_all, by = join_by(year, state_code)) |> 
+  inner_join(data_race_w, by = join_by(year, state_code)) |> 
   inner_join(select(data_sunlight, !state), by = join_by(year, state_code)) |> 
   arrange(year, state_code) |> 
   select(
@@ -124,14 +97,20 @@ data_full <- data_cancer |>
   mutate(fips = sprintf("%02s", as.character(fips)))
 ```
 
-Not all states have sunlight data.
-D.C. (and AK, which doesn't have sunlight data) have a greater population of non-White folks, so if this one index number is messing with the analysis we could consider dropping it.
+I used the FIPS code (`fips`) throughout, but using the regular state names (`full` in `data_us` shape file, `state` in others) should also work fine when uniting data.
 
-```{r data_sf}
+Not all states have sunlight data, so I removed those from the map.
 
+D.C. (and AK, which also doesn't have sunlight data) have a greater population of non-White folks, so if this one index number is messing with the analysis we could consider dropping it.
+
+```{r shape_files}
 include_states <- unique(data_full$fips)
 
-data_us <- usmap::us_map(include = c(as.character(include_states)))
+data_us <- us_map(include = c(as.character(include_states)))
 ```
 
-I used the FIPS code (`fips`) throughout, but using the regular state names (`full` in `data_us` shape file, `state` in others) should also work fine when uniting data.
+```{r save_data}
+saveRDS(data_full, file = here("data", "data_full.rds"))
+```
+
+
