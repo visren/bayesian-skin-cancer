@@ -1,0 +1,715 @@
+"States"	"States Code"	"Yearly July 1st Estimates"	"Yearly July 1st Estimates Code"	"Race"	"Race Code"	"Population"
+	"Alabama"	"01"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	35466
+	"Alabama"	"01"	"2020"	"2020"	"Asian"	"A"	76950
+	"Alabama"	"01"	"2020"	"2020"	"Black or African American"	"2054-5"	1349908
+	"Alabama"	"01"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5384
+	"Alabama"	"01"	"2020"	"2020"	"White"	"2106-3"	3465758
+	"Alabama"	"01"	"2020"	"2020"	"More than one race"	"M"	91337
+	"Alabama"	"01"	"2020"	"2020"	"Not Available"	"999"	0
+	"Alabama"	"01"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	36007
+	"Alabama"	"01"	"2021"	"2021"	"Asian"	"A"	78140
+	"Alabama"	"01"	"2021"	"2021"	"Black or African American"	"2054-5"	1353084
+	"Alabama"	"01"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5485
+	"Alabama"	"01"	"2021"	"2021"	"White"	"2106-3"	3472742
+	"Alabama"	"01"	"2021"	"2021"	"More than one race"	"M"	94419
+	"Alabama"	"01"	"2021"	"2021"	"Not Available"	"999"	0
+	"Alaska"	"02"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	114935
+	"Alaska"	"02"	"2020"	"2020"	"Asian"	"A"	48342
+	"Alaska"	"02"	"2020"	"2020"	"Black or African American"	"2054-5"	26720
+	"Alaska"	"02"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11670
+	"Alaska"	"02"	"2020"	"2020"	"White"	"2106-3"	473697
+	"Alaska"	"02"	"2020"	"2020"	"More than one race"	"M"	57077
+	"Alaska"	"02"	"2020"	"2020"	"Not Available"	"999"	0
+	"Alaska"	"02"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	114947
+	"Alaska"	"02"	"2021"	"2021"	"Asian"	"A"	48278
+	"Alaska"	"02"	"2021"	"2021"	"Black or African American"	"2054-5"	26689
+	"Alaska"	"02"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11921
+	"Alaska"	"02"	"2021"	"2021"	"White"	"2106-3"	472939
+	"Alaska"	"02"	"2021"	"2021"	"More than one race"	"M"	57899
+	"Alaska"	"02"	"2021"	"2021"	"Not Available"	"999"	0
+	"Arizona"	"04"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	381539
+	"Arizona"	"04"	"2020"	"2020"	"Asian"	"A"	270991
+	"Arizona"	"04"	"2020"	"2020"	"Black or African American"	"2054-5"	382887
+	"Arizona"	"04"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	20304
+	"Arizona"	"04"	"2020"	"2020"	"White"	"2106-3"	5901572
+	"Arizona"	"04"	"2020"	"2020"	"More than one race"	"M"	220693
+	"Arizona"	"04"	"2020"	"2020"	"Not Available"	"999"	0
+	"Arizona"	"04"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	384338
+	"Arizona"	"04"	"2021"	"2021"	"Asian"	"A"	277804
+	"Arizona"	"04"	"2021"	"2021"	"Black or African American"	"2054-5"	395177
+	"Arizona"	"04"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	20869
+	"Arizona"	"04"	"2021"	"2021"	"White"	"2106-3"	5969037
+	"Arizona"	"04"	"2021"	"2021"	"More than one race"	"M"	229091
+	"Arizona"	"04"	"2021"	"2021"	"Not Available"	"999"	0
+	"Arkansas"	"05"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	31817
+	"Arkansas"	"05"	"2020"	"2020"	"Asian"	"A"	53063
+	"Arkansas"	"05"	"2020"	"2020"	"Black or African American"	"2054-5"	474311
+	"Arkansas"	"05"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	12815
+	"Arkansas"	"05"	"2020"	"2020"	"White"	"2106-3"	2371688
+	"Arkansas"	"05"	"2020"	"2020"	"More than one race"	"M"	68538
+	"Arkansas"	"05"	"2020"	"2020"	"Not Available"	"999"	0
+	"Arkansas"	"05"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	32625
+	"Arkansas"	"05"	"2021"	"2021"	"Asian"	"A"	54457
+	"Arkansas"	"05"	"2021"	"2021"	"Black or African American"	"2054-5"	475018
+	"Arkansas"	"05"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	13196
+	"Arkansas"	"05"	"2021"	"2021"	"White"	"2106-3"	2379596
+	"Arkansas"	"05"	"2021"	"2021"	"More than one race"	"M"	70999
+	"Arkansas"	"05"	"2021"	"2021"	"Not Available"	"999"	0
+	"California"	"06"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	672092
+	"California"	"06"	"2020"	"2020"	"Asian"	"A"	6228705
+	"California"	"06"	"2020"	"2020"	"Black or African American"	"2054-5"	2559854
+	"California"	"06"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	204079
+	"California"	"06"	"2020"	"2020"	"White"	"2106-3"	28192365
+	"California"	"06"	"2020"	"2020"	"More than one race"	"M"	1642643
+	"California"	"06"	"2020"	"2020"	"Not Available"	"999"	0
+	"California"	"06"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	675009
+	"California"	"06"	"2021"	"2021"	"Asian"	"A"	6250368
+	"California"	"06"	"2021"	"2021"	"Black or African American"	"2054-5"	2548114
+	"California"	"06"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	204990
+	"California"	"06"	"2021"	"2021"	"White"	"2106-3"	27902177
+	"California"	"06"	"2021"	"2021"	"More than one race"	"M"	1657178
+	"California"	"06"	"2021"	"2021"	"Not Available"	"999"	0
+	"Colorado"	"08"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	96445
+	"Colorado"	"08"	"2020"	"2020"	"Asian"	"A"	205553
+	"Colorado"	"08"	"2020"	"2020"	"Black or African American"	"2054-5"	268261
+	"Colorado"	"08"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	12305
+	"Colorado"	"08"	"2020"	"2020"	"White"	"2106-3"	5012802
+	"Colorado"	"08"	"2020"	"2020"	"More than one race"	"M"	188942
+	"Colorado"	"08"	"2020"	"2020"	"Not Available"	"999"	0
+	"Colorado"	"08"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	97711
+	"Colorado"	"08"	"2021"	"2021"	"Asian"	"A"	208878
+	"Colorado"	"08"	"2021"	"2021"	"Black or African American"	"2054-5"	271768
+	"Colorado"	"08"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	12760
+	"Colorado"	"08"	"2021"	"2021"	"White"	"2106-3"	5027045
+	"Colorado"	"08"	"2021"	"2021"	"More than one race"	"M"	193907
+	"Colorado"	"08"	"2021"	"2021"	"Not Available"	"999"	0
+	"Connecticut"	"09"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	23309
+	"Connecticut"	"09"	"2020"	"2020"	"Asian"	"A"	180637
+	"Connecticut"	"09"	"2020"	"2020"	"Black or African American"	"2054-5"	450280
+	"Connecticut"	"09"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4116
+	"Connecticut"	"09"	"2020"	"2020"	"White"	"2106-3"	2849301
+	"Connecticut"	"09"	"2020"	"2020"	"More than one race"	"M"	92617
+	"Connecticut"	"09"	"2020"	"2020"	"Not Available"	"999"	0
+	"Connecticut"	"09"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	24184
+	"Connecticut"	"09"	"2021"	"2021"	"Asian"	"A"	182469
+	"Connecticut"	"09"	"2021"	"2021"	"Black or African American"	"2054-5"	457331
+	"Connecticut"	"09"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4184
+	"Connecticut"	"09"	"2021"	"2021"	"White"	"2106-3"	2842528
+	"Connecticut"	"09"	"2021"	"2021"	"More than one race"	"M"	94901
+	"Connecticut"	"09"	"2021"	"2021"	"Not Available"	"999"	0
+	"Delaware"	"10"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	6950
+	"Delaware"	"10"	"2020"	"2020"	"Asian"	"A"	41733
+	"Delaware"	"10"	"2020"	"2020"	"Black or African American"	"2054-5"	232465
+	"Delaware"	"10"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1140
+	"Delaware"	"10"	"2020"	"2020"	"White"	"2106-3"	680752
+	"Delaware"	"10"	"2020"	"2020"	"More than one race"	"M"	28846
+	"Delaware"	"10"	"2020"	"2020"	"Not Available"	"999"	0
+	"Delaware"	"10"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	7124
+	"Delaware"	"10"	"2021"	"2021"	"Asian"	"A"	42419
+	"Delaware"	"10"	"2021"	"2021"	"Black or African American"	"2054-5"	236621
+	"Delaware"	"10"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1163
+	"Delaware"	"10"	"2021"	"2021"	"White"	"2106-3"	686599
+	"Delaware"	"10"	"2021"	"2021"	"More than one race"	"M"	29458
+	"Delaware"	"10"	"2021"	"2021"	"Not Available"	"999"	0
+	"District of Columbia"	"11"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	4138
+	"District of Columbia"	"11"	"2020"	"2020"	"Asian"	"A"	31308
+	"District of Columbia"	"11"	"2020"	"2020"	"Black or African American"	"2054-5"	313838
+	"District of Columbia"	"11"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1086
+	"District of Columbia"	"11"	"2020"	"2020"	"White"	"2106-3"	319126
+	"District of Columbia"	"11"	"2020"	"2020"	"More than one race"	"M"	20597
+	"District of Columbia"	"11"	"2020"	"2020"	"Not Available"	"999"	0
+	"District of Columbia"	"11"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	4067
+	"District of Columbia"	"11"	"2021"	"2021"	"Asian"	"A"	30342
+	"District of Columbia"	"11"	"2021"	"2021"	"Black or African American"	"2054-5"	306925
+	"District of Columbia"	"11"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1063
+	"District of Columbia"	"11"	"2021"	"2021"	"White"	"2106-3"	307274
+	"District of Columbia"	"11"	"2021"	"2021"	"More than one race"	"M"	20379
+	"District of Columbia"	"11"	"2021"	"2021"	"Not Available"	"999"	0
+	"Florida"	"12"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	114138
+	"Florida"	"12"	"2020"	"2020"	"Asian"	"A"	649498
+	"Florida"	"12"	"2020"	"2020"	"Black or African American"	"2054-5"	3675616
+	"Florida"	"12"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	25865
+	"Florida"	"12"	"2020"	"2020"	"White"	"2106-3"	16609348
+	"Florida"	"12"	"2020"	"2020"	"More than one race"	"M"	495467
+	"Florida"	"12"	"2020"	"2020"	"Not Available"	"999"	0
+	"Florida"	"12"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	117401
+	"Florida"	"12"	"2021"	"2021"	"Asian"	"A"	663832
+	"Florida"	"12"	"2021"	"2021"	"Black or African American"	"2054-5"	3710894
+	"Florida"	"12"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	26678
+	"Florida"	"12"	"2021"	"2021"	"White"	"2106-3"	16749416
+	"Florida"	"12"	"2021"	"2021"	"More than one race"	"M"	512907
+	"Florida"	"12"	"2021"	"2021"	"Not Available"	"999"	0
+	"Georgia"	"13"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	57736
+	"Georgia"	"13"	"2020"	"2020"	"Asian"	"A"	482611
+	"Georgia"	"13"	"2020"	"2020"	"Black or African American"	"2054-5"	3518355
+	"Georgia"	"13"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	14456
+	"Georgia"	"13"	"2020"	"2020"	"White"	"2106-3"	6406015
+	"Georgia"	"13"	"2020"	"2020"	"More than one race"	"M"	246627
+	"Georgia"	"13"	"2020"	"2020"	"Not Available"	"999"	0
+	"Georgia"	"13"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	59144
+	"Georgia"	"13"	"2021"	"2021"	"Asian"	"A"	493398
+	"Georgia"	"13"	"2021"	"2021"	"Black or African American"	"2054-5"	3558724
+	"Georgia"	"13"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	14864
+	"Georgia"	"13"	"2021"	"2021"	"White"	"2106-3"	6418207
+	"Georgia"	"13"	"2021"	"2021"	"More than one race"	"M"	255229
+	"Georgia"	"13"	"2021"	"2021"	"Not Available"	"999"	0
+	"Hawaii"	"15"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	5716
+	"Hawaii"	"15"	"2020"	"2020"	"Asian"	"A"	535455
+	"Hawaii"	"15"	"2020"	"2020"	"Black or African American"	"2054-5"	31739
+	"Hawaii"	"15"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	152523
+	"Hawaii"	"15"	"2020"	"2020"	"White"	"2106-3"	367358
+	"Hawaii"	"15"	"2020"	"2020"	"More than one race"	"M"	359120
+	"Hawaii"	"15"	"2020"	"2020"	"Not Available"	"999"	0
+	"Hawaii"	"15"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	5698
+	"Hawaii"	"15"	"2021"	"2021"	"Asian"	"A"	529888
+	"Hawaii"	"15"	"2021"	"2021"	"Black or African American"	"2054-5"	31000
+	"Hawaii"	"15"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	150726
+	"Hawaii"	"15"	"2021"	"2021"	"White"	"2106-3"	364116
+	"Hawaii"	"15"	"2021"	"2021"	"More than one race"	"M"	360125
+	"Hawaii"	"15"	"2021"	"2021"	"Not Available"	"999"	0
+	"Idaho"	"16"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	32292
+	"Idaho"	"16"	"2020"	"2020"	"Asian"	"A"	29463
+	"Idaho"	"16"	"2020"	"2020"	"Black or African American"	"2054-5"	16982
+	"Idaho"	"16"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4138
+	"Idaho"	"16"	"2020"	"2020"	"White"	"2106-3"	1716927
+	"Idaho"	"16"	"2020"	"2020"	"More than one race"	"M"	47970
+	"Idaho"	"16"	"2020"	"2020"	"Not Available"	"999"	0
+	"Idaho"	"16"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	33064
+	"Idaho"	"16"	"2021"	"2021"	"Asian"	"A"	30778
+	"Idaho"	"16"	"2021"	"2021"	"Black or African American"	"2054-5"	17786
+	"Idaho"	"16"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4355
+	"Idaho"	"16"	"2021"	"2021"	"White"	"2106-3"	1764099
+	"Idaho"	"16"	"2021"	"2021"	"More than one race"	"M"	50841
+	"Idaho"	"16"	"2021"	"2021"	"Not Available"	"999"	0
+	"Illinois"	"17"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	78862
+	"Illinois"	"17"	"2020"	"2020"	"Asian"	"A"	770190
+	"Illinois"	"17"	"2020"	"2020"	"Black or African American"	"2054-5"	1880931
+	"Illinois"	"17"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	8572
+	"Illinois"	"17"	"2020"	"2020"	"White"	"2106-3"	9773575
+	"Illinois"	"17"	"2020"	"2020"	"More than one race"	"M"	273115
+	"Illinois"	"17"	"2020"	"2020"	"Not Available"	"999"	0
+	"Illinois"	"17"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	79517
+	"Illinois"	"17"	"2021"	"2021"	"Asian"	"A"	771000
+	"Illinois"	"17"	"2021"	"2021"	"Black or African American"	"2054-5"	1866607
+	"Illinois"	"17"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	8708
+	"Illinois"	"17"	"2021"	"2021"	"White"	"2106-3"	9668380
+	"Illinois"	"17"	"2021"	"2021"	"More than one race"	"M"	277257
+	"Illinois"	"17"	"2021"	"2021"	"Not Available"	"999"	0
+	"Indiana"	"18"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	29455
+	"Indiana"	"18"	"2020"	"2020"	"Asian"	"A"	179531
+	"Indiana"	"18"	"2020"	"2020"	"Black or African American"	"2054-5"	686041
+	"Indiana"	"18"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4819
+	"Indiana"	"18"	"2020"	"2020"	"White"	"2106-3"	5733020
+	"Indiana"	"18"	"2020"	"2020"	"More than one race"	"M"	152778
+	"Indiana"	"18"	"2020"	"2020"	"Not Available"	"999"	0
+	"Indiana"	"18"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	30234
+	"Indiana"	"18"	"2021"	"2021"	"Asian"	"A"	184780
+	"Indiana"	"18"	"2021"	"2021"	"Black or African American"	"2054-5"	695117
+	"Indiana"	"18"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5007
+	"Indiana"	"18"	"2021"	"2021"	"White"	"2106-3"	5732894
+	"Indiana"	"18"	"2021"	"2021"	"More than one race"	"M"	157953
+	"Indiana"	"18"	"2021"	"2021"	"Not Available"	"999"	0
+	"Iowa"	"19"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	17716
+	"Iowa"	"19"	"2020"	"2020"	"Asian"	"A"	87539
+	"Iowa"	"19"	"2020"	"2020"	"Black or African American"	"2054-5"	134106
+	"Iowa"	"19"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5496
+	"Iowa"	"19"	"2020"	"2020"	"White"	"2106-3"	2878676
+	"Iowa"	"19"	"2020"	"2020"	"More than one race"	"M"	65136
+	"Iowa"	"19"	"2020"	"2020"	"Not Available"	"999"	0
+	"Iowa"	"19"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	18190
+	"Iowa"	"19"	"2021"	"2021"	"Asian"	"A"	88093
+	"Iowa"	"19"	"2021"	"2021"	"Black or African American"	"2054-5"	137863
+	"Iowa"	"19"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	6324
+	"Iowa"	"19"	"2021"	"2021"	"White"	"2106-3"	2875490
+	"Iowa"	"19"	"2021"	"2021"	"More than one race"	"M"	67119
+	"Iowa"	"19"	"2021"	"2021"	"Not Available"	"999"	0
+	"Kansas"	"20"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	35778
+	"Kansas"	"20"	"2020"	"2020"	"Asian"	"A"	93903
+	"Kansas"	"20"	"2020"	"2020"	"Black or African American"	"2054-5"	181411
+	"Kansas"	"20"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3955
+	"Kansas"	"20"	"2020"	"2020"	"White"	"2106-3"	2527184
+	"Kansas"	"20"	"2020"	"2020"	"More than one race"	"M"	93649
+	"Kansas"	"20"	"2020"	"2020"	"Not Available"	"999"	0
+	"Kansas"	"20"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	36318
+	"Kansas"	"20"	"2021"	"2021"	"Asian"	"A"	94163
+	"Kansas"	"20"	"2021"	"2021"	"Black or African American"	"2054-5"	181676
+	"Kansas"	"20"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4083
+	"Kansas"	"20"	"2021"	"2021"	"White"	"2106-3"	2522698
+	"Kansas"	"20"	"2021"	"2021"	"More than one race"	"M"	95644
+	"Kansas"	"20"	"2021"	"2021"	"Not Available"	"999"	0
+	"Kentucky"	"21"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	13727
+	"Kentucky"	"21"	"2020"	"2020"	"Asian"	"A"	75302
+	"Kentucky"	"21"	"2020"	"2020"	"Black or African American"	"2054-5"	385229
+	"Kentucky"	"21"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4666
+	"Kentucky"	"21"	"2020"	"2020"	"White"	"2106-3"	3930066
+	"Kentucky"	"21"	"2020"	"2020"	"More than one race"	"M"	94968
+	"Kentucky"	"21"	"2020"	"2020"	"Not Available"	"999"	0
+	"Kentucky"	"21"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	14029
+	"Kentucky"	"21"	"2021"	"2021"	"Asian"	"A"	76900
+	"Kentucky"	"21"	"2021"	"2021"	"Black or African American"	"2054-5"	389241
+	"Kentucky"	"21"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4819
+	"Kentucky"	"21"	"2021"	"2021"	"White"	"2106-3"	3926400
+	"Kentucky"	"21"	"2021"	"2021"	"More than one race"	"M"	98005
+	"Kentucky"	"21"	"2021"	"2021"	"Not Available"	"999"	0
+	"Louisiana"	"22"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	37461
+	"Louisiana"	"22"	"2020"	"2020"	"Asian"	"A"	87018
+	"Louisiana"	"22"	"2020"	"2020"	"Black or African American"	"2054-5"	1532957
+	"Louisiana"	"22"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	2940
+	"Louisiana"	"22"	"2020"	"2020"	"White"	"2106-3"	2907870
+	"Louisiana"	"22"	"2020"	"2020"	"More than one race"	"M"	82957
+	"Louisiana"	"22"	"2020"	"2020"	"Not Available"	"999"	0
+	"Louisiana"	"22"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	37772
+	"Louisiana"	"22"	"2021"	"2021"	"Asian"	"A"	86989
+	"Louisiana"	"22"	"2021"	"2021"	"Black or African American"	"2054-5"	1524944
+	"Louisiana"	"22"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3008
+	"Louisiana"	"22"	"2021"	"2021"	"White"	"2106-3"	2886564
+	"Louisiana"	"22"	"2021"	"2021"	"More than one race"	"M"	84770
+	"Louisiana"	"22"	"2021"	"2021"	"Not Available"	"999"	0
+	"Maine"	"23"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	9734
+	"Maine"	"23"	"2020"	"2020"	"Asian"	"A"	18168
+	"Maine"	"23"	"2020"	"2020"	"Black or African American"	"2054-5"	24066
+	"Maine"	"23"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	517
+	"Maine"	"23"	"2020"	"2020"	"White"	"2106-3"	1284548
+	"Maine"	"23"	"2020"	"2020"	"More than one race"	"M"	25247
+	"Maine"	"23"	"2020"	"2020"	"Not Available"	"999"	0
+	"Maine"	"23"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	9808
+	"Maine"	"23"	"2021"	"2021"	"Asian"	"A"	18786
+	"Maine"	"23"	"2021"	"2021"	"Black or African American"	"2054-5"	24915
+	"Maine"	"23"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	556
+	"Maine"	"23"	"2021"	"2021"	"White"	"2106-3"	1292011
+	"Maine"	"23"	"2021"	"2021"	"More than one race"	"M"	26171
+	"Maine"	"23"	"2021"	"2021"	"Not Available"	"999"	0
+	"Maryland"	"24"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	39459
+	"Maryland"	"24"	"2020"	"2020"	"Asian"	"A"	423264
+	"Maryland"	"24"	"2020"	"2020"	"Black or African American"	"2054-5"	1932677
+	"Maryland"	"24"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7542
+	"Maryland"	"24"	"2020"	"2020"	"White"	"2106-3"	3581329
+	"Maryland"	"24"	"2020"	"2020"	"More than one race"	"M"	188408
+	"Maryland"	"24"	"2020"	"2020"	"Not Available"	"999"	0
+	"Maryland"	"24"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	40213
+	"Maryland"	"24"	"2021"	"2021"	"Asian"	"A"	427264
+	"Maryland"	"24"	"2021"	"2021"	"Black or African American"	"2054-5"	1937665
+	"Maryland"	"24"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7676
+	"Maryland"	"24"	"2021"	"2021"	"White"	"2106-3"	3560883
+	"Maryland"	"24"	"2021"	"2021"	"More than one race"	"M"	191428
+	"Maryland"	"24"	"2021"	"2021"	"Not Available"	"999"	0
+	"Massachusetts"	"25"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	36538
+	"Massachusetts"	"25"	"2020"	"2020"	"Asian"	"A"	521418
+	"Massachusetts"	"25"	"2020"	"2020"	"Black or African American"	"2054-5"	647009
+	"Massachusetts"	"25"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7625
+	"Massachusetts"	"25"	"2020"	"2020"	"White"	"2106-3"	5625539
+	"Massachusetts"	"25"	"2020"	"2020"	"More than one race"	"M"	184091
+	"Massachusetts"	"25"	"2020"	"2020"	"Not Available"	"999"	0
+	"Massachusetts"	"25"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	37002
+	"Massachusetts"	"25"	"2021"	"2021"	"Asian"	"A"	525188
+	"Massachusetts"	"25"	"2021"	"2021"	"Black or African American"	"2054-5"	650915
+	"Massachusetts"	"25"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7812
+	"Massachusetts"	"25"	"2021"	"2021"	"White"	"2106-3"	5576809
+	"Massachusetts"	"25"	"2021"	"2021"	"More than one race"	"M"	186997
+	"Massachusetts"	"25"	"2021"	"2021"	"Not Available"	"999"	0
+	"Michigan"	"26"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	74420
+	"Michigan"	"26"	"2020"	"2020"	"Asian"	"A"	341474
+	"Michigan"	"26"	"2020"	"2020"	"Black or African American"	"2054-5"	1421548
+	"Michigan"	"26"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4399
+	"Michigan"	"26"	"2020"	"2020"	"White"	"2106-3"	7959124
+	"Michigan"	"26"	"2020"	"2020"	"More than one race"	"M"	266699
+	"Michigan"	"26"	"2020"	"2020"	"Not Available"	"999"	0
+	"Michigan"	"26"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	75117
+	"Michigan"	"26"	"2021"	"2021"	"Asian"	"A"	343402
+	"Michigan"	"26"	"2021"	"2021"	"Black or African American"	"2054-5"	1419656
+	"Michigan"	"26"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4493
+	"Michigan"	"26"	"2021"	"2021"	"White"	"2106-3"	7935511
+	"Michigan"	"26"	"2021"	"2021"	"More than one race"	"M"	272632
+	"Michigan"	"26"	"2021"	"2021"	"Not Available"	"999"	0
+	"Minnesota"	"27"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	78629
+	"Minnesota"	"27"	"2020"	"2020"	"Asian"	"A"	303679
+	"Minnesota"	"27"	"2020"	"2020"	"Black or African American"	"2054-5"	414684
+	"Minnesota"	"27"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4666
+	"Minnesota"	"27"	"2020"	"2020"	"White"	"2106-3"	4751407
+	"Minnesota"	"27"	"2020"	"2020"	"More than one race"	"M"	154100
+	"Minnesota"	"27"	"2020"	"2020"	"Not Available"	"999"	0
+	"Minnesota"	"27"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	79214
+	"Minnesota"	"27"	"2021"	"2021"	"Asian"	"A"	306706
+	"Minnesota"	"27"	"2021"	"2021"	"Black or African American"	"2054-5"	423656
+	"Minnesota"	"27"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	4914
+	"Minnesota"	"27"	"2021"	"2021"	"White"	"2106-3"	4735626
+	"Minnesota"	"27"	"2021"	"2021"	"More than one race"	"M"	157274
+	"Minnesota"	"27"	"2021"	"2021"	"Not Available"	"999"	0
+	"Mississippi"	"28"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	18631
+	"Mississippi"	"28"	"2020"	"2020"	"Asian"	"A"	32965
+	"Mississippi"	"28"	"2020"	"2020"	"Black or African American"	"2054-5"	1122302
+	"Mississippi"	"28"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1946
+	"Mississippi"	"28"	"2020"	"2020"	"White"	"2106-3"	1740027
+	"Mississippi"	"28"	"2020"	"2020"	"More than one race"	"M"	40999
+	"Mississippi"	"28"	"2020"	"2020"	"Not Available"	"999"	0
+	"Mississippi"	"28"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	18851
+	"Mississippi"	"28"	"2021"	"2021"	"Asian"	"A"	33467
+	"Mississippi"	"28"	"2021"	"2021"	"Black or African American"	"2054-5"	1119623
+	"Mississippi"	"28"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	1957
+	"Mississippi"	"28"	"2021"	"2021"	"White"	"2106-3"	1733991
+	"Mississippi"	"28"	"2021"	"2021"	"More than one race"	"M"	42076
+	"Mississippi"	"28"	"2021"	"2021"	"Not Available"	"999"	0
+	"Missouri"	"29"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	36678
+	"Missouri"	"29"	"2020"	"2020"	"Asian"	"A"	136641
+	"Missouri"	"29"	"2020"	"2020"	"Black or African American"	"2054-5"	727560
+	"Missouri"	"29"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	10449
+	"Missouri"	"29"	"2020"	"2020"	"White"	"2106-3"	5089340
+	"Missouri"	"29"	"2020"	"2020"	"More than one race"	"M"	153813
+	"Missouri"	"29"	"2020"	"2020"	"Not Available"	"999"	0
+	"Missouri"	"29"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	37409
+	"Missouri"	"29"	"2021"	"2021"	"Asian"	"A"	138565
+	"Missouri"	"29"	"2021"	"2021"	"Black or African American"	"2054-5"	727065
+	"Missouri"	"29"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	10836
+	"Missouri"	"29"	"2021"	"2021"	"White"	"2106-3"	5095927
+	"Missouri"	"29"	"2021"	"2021"	"More than one race"	"M"	158385
+	"Missouri"	"29"	"2021"	"2021"	"Not Available"	"999"	0
+	"Montana"	"30"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	72110
+	"Montana"	"30"	"2020"	"2020"	"Asian"	"A"	10694
+	"Montana"	"30"	"2020"	"2020"	"Black or African American"	"2054-5"	6559
+	"Montana"	"30"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	941
+	"Montana"	"30"	"2020"	"2020"	"White"	"2106-3"	964391
+	"Montana"	"30"	"2020"	"2020"	"More than one race"	"M"	31498
+	"Montana"	"30"	"2020"	"2020"	"Not Available"	"999"	0
+	"Montana"	"30"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	72551
+	"Montana"	"30"	"2021"	"2021"	"Asian"	"A"	11153
+	"Montana"	"30"	"2021"	"2021"	"Black or African American"	"2054-5"	6894
+	"Montana"	"30"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	997
+	"Montana"	"30"	"2021"	"2021"	"White"	"2106-3"	980015
+	"Montana"	"30"	"2021"	"2021"	"More than one race"	"M"	32661
+	"Montana"	"30"	"2021"	"2021"	"Not Available"	"999"	0
+	"Nebraska"	"31"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	31457
+	"Nebraska"	"31"	"2020"	"2020"	"Asian"	"A"	54037
+	"Nebraska"	"31"	"2020"	"2020"	"Black or African American"	"2054-5"	104007
+	"Nebraska"	"31"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	2547
+	"Nebraska"	"31"	"2020"	"2020"	"White"	"2106-3"	1722615
+	"Nebraska"	"31"	"2020"	"2020"	"More than one race"	"M"	46792
+	"Nebraska"	"31"	"2020"	"2020"	"Not Available"	"999"	0
+	"Nebraska"	"31"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	31809
+	"Nebraska"	"31"	"2021"	"2021"	"Asian"	"A"	54620
+	"Nebraska"	"31"	"2021"	"2021"	"Black or African American"	"2054-5"	104653
+	"Nebraska"	"31"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	2637
+	"Nebraska"	"31"	"2021"	"2021"	"White"	"2106-3"	1721884
+	"Nebraska"	"31"	"2021"	"2021"	"More than one race"	"M"	48089
+	"Nebraska"	"31"	"2021"	"2021"	"Not Available"	"999"	0
+	"Nevada"	"32"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	53103
+	"Nevada"	"32"	"2020"	"2020"	"Asian"	"A"	278329
+	"Nevada"	"32"	"2020"	"2020"	"Black or African American"	"2054-5"	326263
+	"Nevada"	"32"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	26313
+	"Nevada"	"32"	"2020"	"2020"	"White"	"2106-3"	2280227
+	"Nevada"	"32"	"2020"	"2020"	"More than one race"	"M"	149836
+	"Nevada"	"32"	"2020"	"2020"	"Not Available"	"999"	0
+	"Nevada"	"32"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	54145
+	"Nevada"	"32"	"2021"	"2021"	"Asian"	"A"	285911
+	"Nevada"	"32"	"2021"	"2021"	"Black or African American"	"2054-5"	334455
+	"Nevada"	"32"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	27165
+	"Nevada"	"32"	"2021"	"2021"	"White"	"2106-3"	2287445
+	"Nevada"	"32"	"2021"	"2021"	"More than one race"	"M"	154870
+	"Nevada"	"32"	"2021"	"2021"	"Not Available"	"999"	0
+	"New Hampshire"	"33"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	4220
+	"New Hampshire"	"33"	"2020"	"2020"	"Asian"	"A"	41938
+	"New Hampshire"	"33"	"2020"	"2020"	"Black or African American"	"2054-5"	25818
+	"New Hampshire"	"33"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	740
+	"New Hampshire"	"33"	"2020"	"2020"	"White"	"2106-3"	1280372
+	"New Hampshire"	"33"	"2020"	"2020"	"More than one race"	"M"	24760
+	"New Hampshire"	"33"	"2020"	"2020"	"Not Available"	"999"	0
+	"New Hampshire"	"33"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	4341
+	"New Hampshire"	"33"	"2021"	"2021"	"Asian"	"A"	42912
+	"New Hampshire"	"33"	"2021"	"2021"	"Black or African American"	"2054-5"	26779
+	"New Hampshire"	"33"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	747
+	"New Hampshire"	"33"	"2021"	"2021"	"White"	"2106-3"	1288649
+	"New Hampshire"	"33"	"2021"	"2021"	"More than one race"	"M"	25564
+	"New Hampshire"	"33"	"2021"	"2021"	"Not Available"	"999"	0
+	"New Jersey"	"34"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	63419
+	"New Jersey"	"34"	"2020"	"2020"	"Asian"	"A"	949090
+	"New Jersey"	"34"	"2020"	"2020"	"Black or African American"	"2054-5"	1413351
+	"New Jersey"	"34"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11269
+	"New Jersey"	"34"	"2020"	"2020"	"White"	"2106-3"	6626866
+	"New Jersey"	"34"	"2020"	"2020"	"More than one race"	"M"	215748
+	"New Jersey"	"34"	"2020"	"2020"	"Not Available"	"999"	0
+	"New Jersey"	"34"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	64812
+	"New Jersey"	"34"	"2021"	"2021"	"Asian"	"A"	957387
+	"New Jersey"	"34"	"2021"	"2021"	"Black or African American"	"2054-5"	1419801
+	"New Jersey"	"34"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11683
+	"New Jersey"	"34"	"2021"	"2021"	"White"	"2106-3"	6593546
+	"New Jersey"	"34"	"2021"	"2021"	"More than one race"	"M"	219901
+	"New Jersey"	"34"	"2021"	"2021"	"Not Available"	"999"	0
+	"New Mexico"	"35"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	236206
+	"New Mexico"	"35"	"2020"	"2020"	"Asian"	"A"	39367
+	"New Mexico"	"35"	"2020"	"2020"	"Black or African American"	"2054-5"	56618
+	"New Mexico"	"35"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3489
+	"New Mexico"	"35"	"2020"	"2020"	"White"	"2106-3"	1725120
+	"New Mexico"	"35"	"2020"	"2020"	"More than one race"	"M"	56766
+	"New Mexico"	"35"	"2020"	"2020"	"Not Available"	"999"	0
+	"New Mexico"	"35"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	236809
+	"New Mexico"	"35"	"2021"	"2021"	"Asian"	"A"	39851
+	"New Mexico"	"35"	"2021"	"2021"	"Black or African American"	"2054-5"	57350
+	"New Mexico"	"35"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3528
+	"New Mexico"	"35"	"2021"	"2021"	"White"	"2106-3"	1720615
+	"New Mexico"	"35"	"2021"	"2021"	"More than one race"	"M"	57724
+	"New Mexico"	"35"	"2021"	"2021"	"Not Available"	"999"	0
+	"New York"	"36"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	206179
+	"New York"	"36"	"2020"	"2020"	"Asian"	"A"	1856737
+	"New York"	"36"	"2020"	"2020"	"Black or African American"	"2054-5"	3551555
+	"New York"	"36"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	28981
+	"New York"	"36"	"2020"	"2020"	"White"	"2106-3"	13966445
+	"New York"	"36"	"2020"	"2020"	"More than one race"	"M"	545036
+	"New York"	"36"	"2020"	"2020"	"Not Available"	"999"	0
+	"New York"	"36"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	204766
+	"New York"	"36"	"2021"	"2021"	"Asian"	"A"	1845668
+	"New York"	"36"	"2021"	"2021"	"Black or African American"	"2054-5"	3499231
+	"New York"	"36"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	28858
+	"New York"	"36"	"2021"	"2021"	"White"	"2106-3"	13711327
+	"New York"	"36"	"2021"	"2021"	"More than one race"	"M"	546063
+	"New York"	"36"	"2021"	"2021"	"Not Available"	"999"	0
+	"North Carolina"	"37"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	166659
+	"North Carolina"	"37"	"2020"	"2020"	"Asian"	"A"	348649
+	"North Carolina"	"37"	"2020"	"2020"	"Black or African American"	"2054-5"	2327921
+	"North Carolina"	"37"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	14915
+	"North Carolina"	"37"	"2020"	"2020"	"White"	"2106-3"	7342608
+	"North Carolina"	"37"	"2020"	"2020"	"More than one race"	"M"	256425
+	"North Carolina"	"37"	"2020"	"2020"	"Not Available"	"999"	0
+	"North Carolina"	"37"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	168957
+	"North Carolina"	"37"	"2021"	"2021"	"Asian"	"A"	358902
+	"North Carolina"	"37"	"2021"	"2021"	"Black or African American"	"2054-5"	2349731
+	"North Carolina"	"37"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	15452
+	"North Carolina"	"37"	"2021"	"2021"	"White"	"2106-3"	7392234
+	"North Carolina"	"37"	"2021"	"2021"	"More than one race"	"M"	265886
+	"North Carolina"	"37"	"2021"	"2021"	"Not Available"	"999"	0
+	"North Dakota"	"38"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	43978
+	"North Dakota"	"38"	"2020"	"2020"	"Asian"	"A"	13230
+	"North Dakota"	"38"	"2020"	"2020"	"Black or African American"	"2054-5"	27210
+	"North Dakota"	"38"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	664
+	"North Dakota"	"38"	"2020"	"2020"	"White"	"2106-3"	675570
+	"North Dakota"	"38"	"2020"	"2020"	"More than one race"	"M"	18310
+	"North Dakota"	"38"	"2020"	"2020"	"Not Available"	"999"	0
+	"North Dakota"	"38"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	43905
+	"North Dakota"	"38"	"2021"	"2021"	"Asian"	"A"	12869
+	"North Dakota"	"38"	"2021"	"2021"	"Black or African American"	"2054-5"	27157
+	"North Dakota"	"38"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	713
+	"North Dakota"	"38"	"2021"	"2021"	"White"	"2106-3"	671664
+	"North Dakota"	"38"	"2021"	"2021"	"More than one race"	"M"	18640
+	"North Dakota"	"38"	"2021"	"2021"	"Not Available"	"999"	0
+	"Ohio"	"39"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	34821
+	"Ohio"	"39"	"2020"	"2020"	"Asian"	"A"	306746
+	"Ohio"	"39"	"2020"	"2020"	"Black or African American"	"2054-5"	1552241
+	"Ohio"	"39"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7819
+	"Ohio"	"39"	"2020"	"2020"	"White"	"2106-3"	9593738
+	"Ohio"	"39"	"2020"	"2020"	"More than one race"	"M"	295222
+	"Ohio"	"39"	"2020"	"2020"	"Not Available"	"999"	0
+	"Ohio"	"39"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	35442
+	"Ohio"	"39"	"2021"	"2021"	"Asian"	"A"	312896
+	"Ohio"	"39"	"2021"	"2021"	"Black or African American"	"2054-5"	1560246
+	"Ohio"	"39"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	8043
+	"Ohio"	"39"	"2021"	"2021"	"White"	"2106-3"	9560342
+	"Ohio"	"39"	"2021"	"2021"	"More than one race"	"M"	303048
+	"Ohio"	"39"	"2021"	"2021"	"Not Available"	"999"	0
+	"Oklahoma"	"40"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	384062
+	"Oklahoma"	"40"	"2020"	"2020"	"Asian"	"A"	95595
+	"Oklahoma"	"40"	"2020"	"2020"	"Black or African American"	"2054-5"	309496
+	"Oklahoma"	"40"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	9172
+	"Oklahoma"	"40"	"2020"	"2020"	"White"	"2106-3"	2907220
+	"Oklahoma"	"40"	"2020"	"2020"	"More than one race"	"M"	256486
+	"Oklahoma"	"40"	"2020"	"2020"	"Not Available"	"999"	0
+	"Oklahoma"	"40"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	386610
+	"Oklahoma"	"40"	"2021"	"2021"	"Asian"	"A"	98311
+	"Oklahoma"	"40"	"2021"	"2021"	"Black or African American"	"2054-5"	312869
+	"Oklahoma"	"40"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	9597
+	"Oklahoma"	"40"	"2021"	"2021"	"White"	"2106-3"	2917360
+	"Oklahoma"	"40"	"2021"	"2021"	"More than one race"	"M"	261892
+	"Oklahoma"	"40"	"2021"	"2021"	"Not Available"	"999"	0
+	"Oregon"	"41"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	79306
+	"Oregon"	"41"	"2020"	"2020"	"Asian"	"A"	208085
+	"Oregon"	"41"	"2020"	"2020"	"Black or African American"	"2054-5"	95125
+	"Oregon"	"41"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	20119
+	"Oregon"	"41"	"2020"	"2020"	"White"	"2106-3"	3663912
+	"Oregon"	"41"	"2020"	"2020"	"More than one race"	"M"	174997
+	"Oregon"	"41"	"2020"	"2020"	"Not Available"	"999"	0
+	"Oregon"	"41"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	80314
+	"Oregon"	"41"	"2021"	"2021"	"Asian"	"A"	210456
+	"Oregon"	"41"	"2021"	"2021"	"Black or African American"	"2054-5"	96520
+	"Oregon"	"41"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	20379
+	"Oregon"	"41"	"2021"	"2021"	"White"	"2106-3"	3659596
+	"Oregon"	"41"	"2021"	"2021"	"More than one race"	"M"	178890
+	"Oregon"	"41"	"2021"	"2021"	"Not Available"	"999"	0
+	"Pennsylvania"	"42"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	54440
+	"Pennsylvania"	"42"	"2020"	"2020"	"Asian"	"A"	502701
+	"Pennsylvania"	"42"	"2020"	"2020"	"Black or African American"	"2054-5"	1580489
+	"Pennsylvania"	"42"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11238
+	"Pennsylvania"	"42"	"2020"	"2020"	"White"	"2106-3"	10552324
+	"Pennsylvania"	"42"	"2020"	"2020"	"More than one race"	"M"	288433
+	"Pennsylvania"	"42"	"2020"	"2020"	"Not Available"	"999"	0
+	"Pennsylvania"	"42"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	55873
+	"Pennsylvania"	"42"	"2021"	"2021"	"Asian"	"A"	512050
+	"Pennsylvania"	"42"	"2021"	"2021"	"Black or African American"	"2054-5"	1586231
+	"Pennsylvania"	"42"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	11476
+	"Pennsylvania"	"42"	"2021"	"2021"	"White"	"2106-3"	10502382
+	"Pennsylvania"	"42"	"2021"	"2021"	"More than one race"	"M"	296044
+	"Pennsylvania"	"42"	"2021"	"2021"	"Not Available"	"999"	0
+	"Rhode Island"	"44"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	12577
+	"Rhode Island"	"44"	"2020"	"2020"	"Asian"	"A"	40492
+	"Rhode Island"	"44"	"2020"	"2020"	"Black or African American"	"2054-5"	95510
+	"Rhode Island"	"44"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	2290
+	"Rhode Island"	"44"	"2020"	"2020"	"White"	"2106-3"	912979
+	"Rhode Island"	"44"	"2020"	"2020"	"More than one race"	"M"	32381
+	"Rhode Island"	"44"	"2020"	"2020"	"Not Available"	"999"	0
+	"Rhode Island"	"44"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	12780
+	"Rhode Island"	"44"	"2021"	"2021"	"Asian"	"A"	40493
+	"Rhode Island"	"44"	"2021"	"2021"	"Black or African American"	"2054-5"	96864
+	"Rhode Island"	"44"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	2325
+	"Rhode Island"	"44"	"2021"	"2021"	"White"	"2106-3"	910242
+	"Rhode Island"	"44"	"2021"	"2021"	"More than one race"	"M"	32906
+	"Rhode Island"	"44"	"2021"	"2021"	"Not Available"	"999"	0
+	"South Carolina"	"45"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	29038
+	"South Carolina"	"45"	"2020"	"2020"	"Asian"	"A"	97059
+	"South Carolina"	"45"	"2020"	"2020"	"Black or African American"	"2054-5"	1377478
+	"South Carolina"	"45"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5259
+	"South Carolina"	"45"	"2020"	"2020"	"White"	"2106-3"	3515485
+	"South Carolina"	"45"	"2020"	"2020"	"More than one race"	"M"	106410
+	"South Carolina"	"45"	"2020"	"2020"	"Not Available"	"999"	0
+	"South Carolina"	"45"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	29675
+	"South Carolina"	"45"	"2021"	"2021"	"Asian"	"A"	100216
+	"South Carolina"	"45"	"2021"	"2021"	"Black or African American"	"2054-5"	1383427
+	"South Carolina"	"45"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	5399
+	"South Carolina"	"45"	"2021"	"2021"	"White"	"2106-3"	3561602
+	"South Carolina"	"45"	"2021"	"2021"	"More than one race"	"M"	110386
+	"South Carolina"	"45"	"2021"	"2021"	"Not Available"	"999"	0
+	"South Dakota"	"46"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	80303
+	"South Dakota"	"46"	"2020"	"2020"	"Asian"	"A"	14751
+	"South Dakota"	"46"	"2020"	"2020"	"Black or African American"	"2054-5"	21356
+	"South Dakota"	"46"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	861
+	"South Dakota"	"46"	"2020"	"2020"	"White"	"2106-3"	747285
+	"South Dakota"	"46"	"2020"	"2020"	"More than one race"	"M"	22543
+	"South Dakota"	"46"	"2020"	"2020"	"Not Available"	"999"	0
+	"South Dakota"	"46"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	80491
+	"South Dakota"	"46"	"2021"	"2021"	"Asian"	"A"	15057
+	"South Dakota"	"46"	"2021"	"2021"	"Black or African American"	"2054-5"	22058
+	"South Dakota"	"46"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	934
+	"South Dakota"	"46"	"2021"	"2021"	"White"	"2106-3"	753542
+	"South Dakota"	"46"	"2021"	"2021"	"More than one race"	"M"	23294
+	"South Dakota"	"46"	"2021"	"2021"	"Not Available"	"999"	0
+	"Tennessee"	"47"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	34156
+	"Tennessee"	"47"	"2020"	"2020"	"Asian"	"A"	137700
+	"Tennessee"	"47"	"2020"	"2020"	"Black or African American"	"2054-5"	1180247
+	"Tennessee"	"47"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7209
+	"Tennessee"	"47"	"2020"	"2020"	"White"	"2106-3"	5416313
+	"Tennessee"	"47"	"2020"	"2020"	"More than one race"	"M"	144494
+	"Tennessee"	"47"	"2020"	"2020"	"Not Available"	"999"	0
+	"Tennessee"	"47"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	35117
+	"Tennessee"	"47"	"2021"	"2021"	"Asian"	"A"	140701
+	"Tennessee"	"47"	"2021"	"2021"	"Black or African American"	"2054-5"	1184041
+	"Tennessee"	"47"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	7423
+	"Tennessee"	"47"	"2021"	"2021"	"White"	"2106-3"	5457887
+	"Tennessee"	"47"	"2021"	"2021"	"More than one race"	"M"	150049
+	"Tennessee"	"47"	"2021"	"2021"	"Not Available"	"999"	0
+	"Texas"	"48"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	307117
+	"Texas"	"48"	"2020"	"2020"	"Asian"	"A"	1572875
+	"Texas"	"48"	"2020"	"2020"	"Black or African American"	"2054-5"	3823491
+	"Texas"	"48"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	44919
+	"Texas"	"48"	"2020"	"2020"	"White"	"2106-3"	22848497
+	"Texas"	"48"	"2020"	"2020"	"More than one race"	"M"	620754
+	"Texas"	"48"	"2020"	"2020"	"Not Available"	"999"	0
+	"Texas"	"48"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	314130
+	"Texas"	"48"	"2021"	"2021"	"Asian"	"A"	1616815
+	"Texas"	"48"	"2021"	"2021"	"Black or African American"	"2054-5"	3894860
+	"Texas"	"48"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	46266
+	"Texas"	"48"	"2021"	"2021"	"White"	"2106-3"	23012250
+	"Texas"	"48"	"2021"	"2021"	"More than one race"	"M"	643620
+	"Texas"	"48"	"2021"	"2021"	"Not Available"	"999"	0
+	"Utah"	"49"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	51365
+	"Utah"	"49"	"2020"	"2020"	"Asian"	"A"	87569
+	"Utah"	"49"	"2020"	"2020"	"Black or African American"	"2054-5"	49028
+	"Utah"	"49"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	36897
+	"Utah"	"49"	"2020"	"2020"	"White"	"2106-3"	2967512
+	"Utah"	"49"	"2020"	"2020"	"More than one race"	"M"	89313
+	"Utah"	"49"	"2020"	"2020"	"Not Available"	"999"	0
+	"Utah"	"49"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	52657
+	"Utah"	"49"	"2021"	"2021"	"Asian"	"A"	89680
+	"Utah"	"49"	"2021"	"2021"	"Black or African American"	"2054-5"	50597
+	"Utah"	"49"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	38207
+	"Utah"	"49"	"2021"	"2021"	"White"	"2106-3"	3013038
+	"Utah"	"49"	"2021"	"2021"	"More than one race"	"M"	93796
+	"Utah"	"49"	"2021"	"2021"	"Not Available"	"999"	0
+	"Vermont"	"50"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	2476
+	"Vermont"	"50"	"2020"	"2020"	"Asian"	"A"	12846
+	"Vermont"	"50"	"2020"	"2020"	"Black or African American"	"2054-5"	9175
+	"Vermont"	"50"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	236
+	"Vermont"	"50"	"2020"	"2020"	"White"	"2106-3"	604813
+	"Vermont"	"50"	"2020"	"2020"	"More than one race"	"M"	12949
+	"Vermont"	"50"	"2020"	"2020"	"Not Available"	"999"	0
+	"Vermont"	"50"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	2529
+	"Vermont"	"50"	"2021"	"2021"	"Asian"	"A"	12962
+	"Vermont"	"50"	"2021"	"2021"	"Black or African American"	"2054-5"	9393
+	"Vermont"	"50"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	245
+	"Vermont"	"50"	"2021"	"2021"	"White"	"2106-3"	607082
+	"Vermont"	"50"	"2021"	"2021"	"More than one race"	"M"	13359
+	"Vermont"	"50"	"2021"	"2021"	"Not Available"	"999"	0
+	"Virginia"	"51"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	48265
+	"Virginia"	"51"	"2020"	"2020"	"Asian"	"A"	612522
+	"Virginia"	"51"	"2020"	"2020"	"Black or African American"	"2054-5"	1723425
+	"Virginia"	"51"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	10472
+	"Virginia"	"51"	"2020"	"2020"	"White"	"2106-3"	5955284
+	"Virginia"	"51"	"2020"	"2020"	"More than one race"	"M"	282076
+	"Virginia"	"51"	"2020"	"2020"	"Not Available"	"999"	0
+	"Virginia"	"51"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	49207
+	"Virginia"	"51"	"2021"	"2021"	"Asian"	"A"	620996
+	"Virginia"	"51"	"2021"	"2021"	"Black or African American"	"2054-5"	1729436
+	"Virginia"	"51"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	10691
+	"Virginia"	"51"	"2021"	"2021"	"White"	"2106-3"	5942209
+	"Virginia"	"51"	"2021"	"2021"	"More than one race"	"M"	289735
+	"Virginia"	"51"	"2021"	"2021"	"Not Available"	"999"	0
+	"Washington"	"53"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	151735
+	"Washington"	"53"	"2020"	"2020"	"Asian"	"A"	756654
+	"Washington"	"53"	"2020"	"2020"	"Black or African American"	"2054-5"	342592
+	"Washington"	"53"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	61797
+	"Washington"	"53"	"2020"	"2020"	"White"	"2106-3"	6011340
+	"Washington"	"53"	"2020"	"2020"	"More than one race"	"M"	394667
+	"Washington"	"53"	"2020"	"2020"	"Not Available"	"999"	0
+	"Washington"	"53"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	152807
+	"Washington"	"53"	"2021"	"2021"	"Asian"	"A"	775470
+	"Washington"	"53"	"2021"	"2021"	"Black or African American"	"2054-5"	348170
+	"Washington"	"53"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	63112
+	"Washington"	"53"	"2021"	"2021"	"White"	"2106-3"	5995925
+	"Washington"	"53"	"2021"	"2021"	"More than one race"	"M"	403208
+	"Washington"	"53"	"2021"	"2021"	"Not Available"	"999"	0
+	"West Virginia"	"54"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	4610
+	"West Virginia"	"54"	"2020"	"2020"	"Asian"	"A"	15359
+	"West Virginia"	"54"	"2020"	"2020"	"Black or African American"	"2054-5"	65710
+	"West Virginia"	"54"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	536
+	"West Virginia"	"54"	"2020"	"2020"	"White"	"2106-3"	1669451
+	"West Virginia"	"54"	"2020"	"2020"	"More than one race"	"M"	34132
+	"West Virginia"	"54"	"2020"	"2020"	"Not Available"	"999"	0
+	"West Virginia"	"54"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	4722
+	"West Virginia"	"54"	"2021"	"2021"	"Asian"	"A"	15746
+	"West Virginia"	"54"	"2021"	"2021"	"Black or African American"	"2054-5"	66240
+	"West Virginia"	"54"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	524
+	"West Virginia"	"54"	"2021"	"2021"	"White"	"2106-3"	1660372
+	"West Virginia"	"54"	"2021"	"2021"	"More than one race"	"M"	35355
+	"West Virginia"	"54"	"2021"	"2021"	"Not Available"	"999"	0
+	"Wisconsin"	"55"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	71011
+	"Wisconsin"	"55"	"2020"	"2020"	"Asian"	"A"	184602
+	"Wisconsin"	"55"	"2020"	"2020"	"Black or African American"	"2054-5"	398233
+	"Wisconsin"	"55"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3534
+	"Wisconsin"	"55"	"2020"	"2020"	"White"	"2106-3"	5109616
+	"Wisconsin"	"55"	"2020"	"2020"	"More than one race"	"M"	125327
+	"Wisconsin"	"55"	"2020"	"2020"	"Not Available"	"999"	0
+	"Wisconsin"	"55"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	71663
+	"Wisconsin"	"55"	"2021"	"2021"	"Asian"	"A"	186678
+	"Wisconsin"	"55"	"2021"	"2021"	"Black or African American"	"2054-5"	398693
+	"Wisconsin"	"55"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	3609
+	"Wisconsin"	"55"	"2021"	"2021"	"White"	"2106-3"	5106775
+	"Wisconsin"	"55"	"2021"	"2021"	"More than one race"	"M"	128490
+	"Wisconsin"	"55"	"2021"	"2021"	"Not Available"	"999"	0
+	"Wyoming"	"56"	"2020"	"2020"	"American Indian or Alaska Native"	"1002-5"	16426
+	"Wyoming"	"56"	"2020"	"2020"	"Asian"	"A"	6322
+	"Wyoming"	"56"	"2020"	"2020"	"Black or African American"	"2054-5"	7070
+	"Wyoming"	"56"	"2020"	"2020"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	607
+	"Wyoming"	"56"	"2020"	"2020"	"White"	"2106-3"	533556
+	"Wyoming"	"56"	"2020"	"2020"	"More than one race"	"M"	13286
+	"Wyoming"	"56"	"2020"	"2020"	"Not Available"	"999"	0
+	"Wyoming"	"56"	"2021"	"2021"	"American Indian or Alaska Native"	"1002-5"	16435
+	"Wyoming"	"56"	"2021"	"2021"	"Asian"	"A"	6329
+	"Wyoming"	"56"	"2021"	"2021"	"Black or African American"	"2054-5"	7087
+	"Wyoming"	"56"	"2021"	"2021"	"Native Hawaiian or Other Pacific Islander"	"NHOPI"	586
+	"Wyoming"	"56"	"2021"	"2021"	"White"	"2106-3"	534669
+	"Wyoming"	"56"	"2021"	"2021"	"More than one race"	"M"	13697
+	"Wyoming"	"56"	"2021"	"2021"	"Not Available"	"999"	0
