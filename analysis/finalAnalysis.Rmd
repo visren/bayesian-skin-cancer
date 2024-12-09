@@ -17,7 +17,9 @@ pacman::p_load(
   ggplot2, 
   leaflet,
   sf,
-  spdep #for computing spatial objects to for Moran's I
+  spdep, #for computing spatial objects to for Moran's I
+  CARBayesST
+
 )
 ```
 
@@ -115,7 +117,7 @@ leaflet(data = averageSun.data_us) |>
 
 
 #### Fit a simple Poisson log-linear model
-model1 <- glm(formula=cancer_count~ + sunlight_daily_avg + proportion_white, family="poisson", data=data)
+model1 <- glm(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data)
 round(cbind(model1$coefficients, confint(model1)),4)
 
 
@@ -141,6 +143,22 @@ W.list <- nb2listw(W.nb, style = "B")
 
 #### Conduct Moran's I test
 moran.mc(x = residuals2010_us_data$residuals, listw = W.list, nsim = 10000)
+
+
+
+```
+
+```{r mcmc chains}
+
+lookup <- data.frame(fips=residuals2010_us_data$fips, spatialorder=1:nrow(residuals2010_us_data))
+data.temp <- merge(x=data, y=lookup, by="fips")
+data.ordered <- arrange(data.temp, year, spatialorder) 
+# 
+
+#### Fit the model
+chain1 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+chain2 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+chain3 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
 
 
 
