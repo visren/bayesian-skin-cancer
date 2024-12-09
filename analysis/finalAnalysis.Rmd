@@ -1,0 +1,100 @@
+---
+title: "data_analysis"
+output: html_document
+date: "2024-12-08"
+---
+
+
+```{r setup, include=FALSE}
+if(!require("pacman"))
+  install.packages("pacman")
+
+pacman::p_load(
+  here,   # need here for loading data to all systems
+  dplyr,
+  tidyr,
+  usmap,
+  ggplot2, 
+  leaflet
+)
+```
+
+```{r load data}
+#load data from wrangling
+data <- readRDS(here("data","data_full.rds"))
+
+#open US shape file
+include_states <- unique(data$fips)
+data_us <- us_map(include = c(as.character(include_states)))
+
+```
+
+```{r eda}
+
+#EDA of covariates through the years
+
+#--------
+#sunlight
+#--------
+
+ggplot(data, aes(x = factor(year), y = sunlight_daily_avg)) +
+    geom_boxplot(fill="red", alpha=0.7) + 
+    labs(title = "Boxplot of daily average sunlight") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = expression(paste("Daily Sunlight Average (W/m"^"2)"))) + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+#--------
+#cancer count
+#--------
+
+
+ggplot(data, aes(x = factor(year), y = cancer_count)) +
+    geom_boxplot(fill="blue", alpha=0.7) + 
+    labs(title = "Boxplot of cancer count") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = expression(paste("Cancer count per 10,000 people"))) + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+#--------
+#proportion white
+#--------
+
+ggplot(data, aes(x = factor(year), y = proportion_white)) +
+    geom_boxplot(fill="green", alpha=0.7) + 
+    labs(title = "Boxplot of proportion white") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = expression(paste("Proportion of population that identify as white"))) + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+```
+
+
+```{r merge data}
+#### Compute the average SMR for each year
+by_state <- group_by(data, fips)
+averageSun <- summarize(by_state, sunDailyAvg = mean(sunlight_daily_avg, na.rm=T))
+
+
+#### Merge the data and shapefile with leaflet package
+averageSun.data_us <- merge(x=data_us, y=averageSun, by.x="fips", by.y="fips", all.x=FALSE)
+# averageSMR.LA.ll <- spTransform(averageSMR.LA, CRS("+proj=longlat +datum=WGS84 +no_defs"))
+variable <- averageSun.data_us$data$sunlight_daily_avg
+colours <- colorNumeric(palette = "YlOrBr", domain = variable, reverse=FALSE)
+leaflet(data=averageSun.data_us) %>%
+    addTiles() %>%
+    addPolygons(fillColor = ~colours(variable),
+                color="",
+                fillOpacity = 0.7, weight = 1, smoothFactor = 0.5,
+                opacity = 1.0) %>%
+    addLegend(pal = colours, values = variable,
+              opacity = 1, title="Daily Sunlight Average") %>%
+    addScaleBar(position="bottomleft")
+
+```
