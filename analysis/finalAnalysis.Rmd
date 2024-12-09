@@ -15,7 +15,9 @@ pacman::p_load(
   tidyr,
   usmap,
   ggplot2, 
-  leaflet
+  leaflet,
+  sf,
+  spdep #for computing spatial objects to for Moran's I
 )
 ```
 
@@ -26,6 +28,8 @@ data <- readRDS(here("data","data_full.rds"))
 #open US shape file
 include_states <- unique(data$fips)
 data_us <- us_map(include = c(as.character(include_states)))
+data_us <- st_transform(data_us, crs = 4326) #convert to lat long
+st_crs(data_us) #confirm we are in lat long
 
 ```
 
@@ -70,31 +74,74 @@ ggplot(data, aes(x = factor(year), y = proportion_white)) +
     scale_x_discrete(name = "Year", 
                      breaks=c(1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
                      labels=c("1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
-    scale_y_continuous(name = expression(paste("Proportion of population that identify as white"))) + 
+    scale_y_continuous(name = "Proportion of population that identify as white") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
 
 ```
 
 
 ```{r merge data}
-#### Compute the average SMR for each year
+#compute the average sunlight for each year
 by_state <- group_by(data, fips)
 averageSun <- summarize(by_state, sunDailyAvg = mean(sunlight_daily_avg, na.rm=T))
 
+#merge sunlight data with data_us
+averageSun.data_us <- left_join(data_us, averageSun, by = "fips")
 
-#### Merge the data and shapefile with leaflet package
-averageSun.data_us <- merge(x=data_us, y=averageSun, by.x="fips", by.y="fips", all.x=FALSE)
-# averageSMR.LA.ll <- spTransform(averageSMR.LA, CRS("+proj=longlat +datum=WGS84 +no_defs"))
-variable <- averageSun.data_us$data$sunlight_daily_avg
-colours <- colorNumeric(palette = "YlOrBr", domain = variable, reverse=FALSE)
-leaflet(data=averageSun.data_us) %>%
-    addTiles() %>%
-    addPolygons(fillColor = ~colours(variable),
-                color="",
-                fillOpacity = 0.7, weight = 1, smoothFactor = 0.5,
-                opacity = 1.0) %>%
-    addLegend(pal = colours, values = variable,
-              opacity = 1, title="Daily Sunlight Average") %>%
-    addScaleBar(position="bottomleft")
+#color definition for sunlight
+variable <- averageSun.data_us$sunDailyAvg # Ensure we use the merged data column
+colors <- colorNumeric(palette = "YlOrBr", domain = variable, reverse = FALSE)
+
+# create the Leaflet map
+leaflet(data = averageSun.data_us) |>
+  addTiles() |>
+  addPolygons(
+    fillColor = ~colors(sunDailyAvg),  # Use the correct column
+    color = "black",  
+    fillOpacity = 0.7,
+    weight = 1,
+    smoothFactor = 0.5,
+    opacity = 1.0) |>
+  addLegend(
+    pal = colors,
+    values = variable,
+    opacity = 1,
+    title = "Daily Sunlight Average (W/m²)") |>
+  addScaleBar(position = "bottomleft")
+
+```
+
+```{r compute spatial correlations}
+
+
+#### Fit a simple Poisson log-linear model
+model1 <- glm(formula=cancer_count~ + sunlight_daily_avg + proportion_white, family="poisson", data=data)
+round(cbind(model1$coefficients, confint(model1)),4)
+
+
+#### compute the residuals from this model
+data$residuals <- residuals(model1)
+residuals2010 <- filter(data, year==2010)
+residuals2010_us_data <- left_join(data_us, residuals2010, by = "fips")
+
+
+
+#### Construct the spatial objects
+
+# Generate neighbors list
+W.nb <- poly2nb(residuals2010_us_data, row.names = residuals2010_us_data$fips)
+
+# Convert to a spatial weights matrix
+W <- nb2mat(W.nb, style = "B")
+
+# Convert to a list-based weights object
+W.list <- nb2listw(W.nb, style = "B")
+
+
+
+#### Conduct Moran's I test
+moran.mc(x = residuals2010_us_data$residuals, listw = W.list, nsim = 10000)
+
+
 
 ```
