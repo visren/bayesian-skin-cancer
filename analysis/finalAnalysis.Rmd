@@ -124,15 +124,15 @@ round(cbind(model1$coefficients, confint(model1)),4)
 
 #### compute the residuals from this model
 data$residuals <- residuals(model1)
-residuals2010 <- filter(data, year==2010)
-residuals2010_us_data <- left_join(data_us, residuals2010, by = "fips")
+residuals2011 <- filter(data, year==2011)
+residuals2011_us_data <- left_join(data_us, residuals2011, by = "fips")
 
 
 
 #### Construct the spatial objects
 
 # Generate neighbors list
-W.nb <- poly2nb(residuals2010_us_data, row.names = residuals2010_us_data$fips)
+W.nb <- poly2nb(residuals2011_us_data, row.names = residuals2011_us_data$fips)
 
 # Convert to a spatial weights matrix
 W <- nb2mat(W.nb, style = "B")
@@ -142,7 +142,7 @@ W.list <- nb2listw(W.nb, style = "B")
 
 
 #### Conduct Moran's I test
-moran.mc(x = residuals2010_us_data$residuals, listw = W.list, nsim = 10000)
+moran.mc(x = residuals2011_us_data$residuals, listw = W.list, nsim = 10000)
 
 
 
@@ -151,7 +151,7 @@ moran.mc(x = residuals2010_us_data$residuals, listw = W.list, nsim = 10000)
 ```{r mcmc chains}
 
 
-lookup <- data.frame(fips = residuals2010_us_data$fips, spatialorder = 1:nrow(residuals2010_us_data))
+lookup <- data.frame(fips = residuals2011_us_data$fips, spatialorder = 1:nrow(residuals2011_us_data))
 data.temp <- merge(x = data, y = lookup, by = "fips")
 data.ordered <- arrange(data.temp, year, spatialorder)
 
@@ -185,8 +185,14 @@ gelman.diag(beta.samples)
 
 
 #### Model summary
-# print(chain1)
+print(chain1)
+print(chain2)
+print(chain3)
 ```
+Looking at the trace plots, we can see that we have roughly consistent variation and no trend from the first to final samples in each plot. Also, based on the gelman rubin statistics, we see our two covariates "proportion white" and "sunlight daily average" have point estimates and upper CI of less than 1.1 suggesting convergence.
+
+To then determine if sunlight or proportion white have a significant affect on skin cancer, we can look and see if our uncertainty intervals (2.5%-97.5%) encapsulate zero. We can see that both variables have zero within their intervals, suggesting that both variables have a significant influence on skin cancer.Rho.S is low suggesting low spatial correlation, while Rho.t is close to one, suggesting that there is a temporal correlation. These findings are reflected across all three chains.
+
 
 ## Inference
 
@@ -197,12 +203,14 @@ set.seed(1)
 #### Section 5 - Inference
 ##########################
 #### Effects of covariates on disease risk
-sd(data.ordered$cancer_count)
-sd(data.ordered$sunlight_daily_avg)
+sd(data.ordered$proportion_white)
+sd(data.ordered$sunlight_daily_avg) #some insane value...
 beta.samples.combined <- rbind(chain1$samples$beta, chain2$samples$beta, chain3$samples$beta)
 round(quantile(exp(sd(data.ordered$cancer_count) * beta.samples.combined[ ,2]), c(0.5, 0.025, 0.975)),3)
 round(quantile(exp(sd(data.ordered$sunlight_daily_avg) * beta.samples.combined[ ,3]), c(0.5, 0.025, 0.975)),3)
 ```
+
+Here we can see that if the proportion of white people increases by 0.112, the cancer count will increase by 14.9%. We can also see that if the daily sunlight average increases by 1630.702 W/m^2, then the cancer count does not increase. However since the interval includes 1, daily sunlight average doesnt have a significant affect, while proportion of white people does include zero, suggesting a significant affect.
 
 ```{r inference_risk_trends}
 set.seed(1)
@@ -211,58 +219,60 @@ set.seed(1)
 fitted.samples.combined <- rbind(chain1$samples$fitted, chain2$samples$fitted, chain3$samples$fitted)
 n.samples <- nrow(fitted.samples.combined)
 n.all <- ncol(fitted.samples.combined)
-risk.samples.combined <- fitted.samples.combined / matrix(rep(dat.ordered$E, n.samples), nrow=n.samples, ncol=n.all, byrow=TRUE) 
+risk.samples.combined <- fitted.samples.combined / matrix(rep(data.ordered$cancer_count, n.samples), nrow=n.samples, ncol=n.all, byrow=TRUE) 
 
 #### Compute the areal unit average risk for each year
-N <- length(table(dat.ordered$Year))
+N <- length(table(data.ordered$year))
 risk.trends <- array(NA, c(n.samples, N))
 for(i in 1:n.samples)
 {
-    risk.trends[i, ] <- tapply(risk.samples.combined[i, ], dat.ordered$Year, mean)
+    risk.trends[i, ] <- tapply(risk.samples.combined[i, ], data.ordered$year, mean)
 }
 
 
 #### Plot the average risk trends
 time.trends <- as.data.frame(t(apply(risk.trends, 2, quantile, c(0.5, 0.025, 0.975))))
-time.trends <- time.trends %>% mutate(Year=names(table(dat.ordered$Year)))
+time.trends <- time.trends %>% mutate(year=names(table(data.ordered$year)))
 colnames(time.trends)[1:3] <- c("Median","LCI", "UCI")
 
-ggplot(time.trends, aes(x = factor(Year), y = Median, group=1)) +
+ggplot(time.trends, aes(x = factor(year), y = Median, group=1)) +
     geom_line(col="red") + 
-    geom_line(aes(x=factor(Year), y=LCI), col="red", lty=2) +
-    geom_line(aes(x=factor(Year), y=UCI), col="red", lty=2) + 
-    scale_x_discrete(name = "Year", breaks=c(2002, 2005, 2008, 2011, 2014, 2017), labels=c("2002", "2005", "2008", "2011", "2014", "2017")) +
+    geom_line(aes(x=factor(year), y=LCI), col="red", lty=2) +
+    geom_line(aes(x=factor(year), y=UCI), col="red", lty=2) + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +    
     scale_y_continuous(name = "Risk") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
 ```
-
+This is the posterior distribution of average risk per year, with 95% CI intervals. While the intervals are large (questionably so), the trend is consistent, with significant chance from 2003-2004, then staing relatively consistant from 2003 onwards
 
 ```{r inference_map_preparation}
 set.seed(1)
 
 #### Spatial pattern in disease risk in the last year - mean and PEP
-risk.samples.2010 <- risk.samples.combined[ ,data.ordered$year==2011]
-risk.2010 <- apply(risk.samples.2010, 2, median)
-pep.2010 <- apply(risk.samples.2010 > 1, 2, mean)
+risk.samples.2011 <- risk.samples.combined[ ,data.ordered$year==2011]
+risk.2011 <- apply(risk.samples.2011, 2, median)
+pep.2011 <- apply(risk.samples.2011 > 1, 2, mean)
 #### Map the results
-residuals2010.LA$risk.2010 <- risk.2010
-residuals2010.LA$pep.2010 <- pep.2010
+residuals2011_us_data$risk.2011 <- risk.2011
+residuals2011_us_data$pep.2011 <- pep.2011
 # residuals2010.LA.ll <- spTransform(residuals2010.LA, CRS("+proj=longlat +datum=WGS84 +no_defs"))
-residuals2010.LA.ll <- st_transform(residuals2010.LA, crs="+proj=longlat +datum=WGS84 +no_defs")
+residuals2011_us_data <- st_transform(residuals2011_us_data, crs="+proj=longlat +datum=WGS84 +no_defs")
 ```
 
 ```{r inference_map_risk}
 set.seed(1)
 
 # colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll@data$risk.2010, reverse=FALSE)
-colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll$risk.2010, reverse=FALSE)
-leaflet(data=residuals2010.LA.ll) %>% 
+colours <- colorNumeric(palette = "YlOrBr", domain = residuals2011_us_data$risk.2011, reverse=FALSE)
+leaflet(data=residuals2011_us_data) %>% 
     addTiles() %>% 
-    addPolygons(fillColor = ~colours(risk.2010), 
+    addPolygons(fillColor = ~colours(risk.2011), 
                 color="",
                 fillOpacity = 0.7, weight = 1, smoothFactor = 0.5,
                 opacity = 1.0) %>%
-    addLegend(pal = colours, values = risk.2010, 
+    addLegend(pal = colours, values = risk.2011, 
               opacity = 1, title="Risk") %>%
     addScaleBar(position="bottomleft")
 ```
@@ -270,14 +280,14 @@ leaflet(data=residuals2010.LA.ll) %>%
 ```{r inference_map_pep}
 set.seed(1)
 # colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll@data$pep.2010, reverse=FALSE)
-colours <- colorNumeric(palette = "YlOrBr", domain = residuals2010.LA.ll$pep.2010, reverse=FALSE)
-leaflet(data=residuals2010.LA.ll) %>% 
+colours <- colorNumeric(palette = "YlOrBr", domain = residuals2011_us_data$pep.2011, reverse=FALSE)
+leaflet(data=residuals2011_us_data) %>% 
     addTiles() %>% 
-    addPolygons(fillColor = ~colours(pep.2010), 
+    addPolygons(fillColor = ~colours(pep.2011), 
                 color="",
                 fillOpacity = 0.7, weight = 1, smoothFactor = 0.5,
                 opacity = 1.0) %>%
-    addLegend(pal = colours, values = pep.2010, 
+    addLegend(pal = colours, values = pep.2011, 
               opacity = 1, title="PEP") %>%
     addScaleBar(position="bottomleft")
 ```
@@ -287,10 +297,12 @@ set.seed(1)
 
 #### Compute the median risk for each area
 risk.median <- apply(risk.samples.combined, 2, median)
-inequality <- tapply(risk.median, dat.ordered$Year, IQR)
-ggplot(data.frame(inequality, Year=names(inequality)), aes(x = factor(Year), y = inequality, group=1)) +
+inequality <- tapply(risk.median, data.ordered$year, IQR)
+ggplot(data.frame(inequality, year=names(inequality)), aes(x = factor(year), y = inequality, group=1)) +
     geom_line(col="red") + 
-    scale_x_discrete(name = "Year", breaks=c(2002, 2005, 2008, 2011, 2014, 2017), labels=c("2002", "2005", "2008", "2011", "2014", "2017")) +
+    scale_x_discrete(name = "Year", 
+                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +    
     scale_y_continuous(name = "Inequality") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
 ```
