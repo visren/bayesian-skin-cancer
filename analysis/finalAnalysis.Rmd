@@ -155,15 +155,16 @@ lookup <- data.frame(fips = residuals2011_us_data$fips, spatialorder = 1:nrow(re
 data.temp <- merge(x = data, y = lookup, by = "fips")
 data.ordered <- arrange(data.temp, year, spatialorder)
 
+#Uncomment to rerun chains if needed
 
-chain1 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
-chain2 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
-chain3 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
-
-
-saveRDS(chain1, file = here("analysis", "chain1.rds"))
-saveRDS(chain2, file = here("analysis", "chain2.rds"))
-saveRDS(chain3, file = here("analysis", "chain3.rds"))
+# chain1 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+# chain2 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+# chain3 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+# 
+# 
+# saveRDS(chain1, file = here("analysis", "chain1.rds"))
+# saveRDS(chain2, file = here("analysis", "chain2.rds"))
+# saveRDS(chain3, file = here("analysis", "chain3.rds"))
 
 ```
 
@@ -210,7 +211,7 @@ round(quantile(exp(sd(data.ordered$cancer_count) * beta.samples.combined[ ,2]), 
 round(quantile(exp(sd(data.ordered$sunlight_daily_avg) * beta.samples.combined[ ,3]), c(0.5, 0.025, 0.975)),3)
 ```
 
-Here we can see that if the proportion of white people increases by 0.112, the cancer count will increase by 14.9%. We can also see that if the daily sunlight average increases by 1630.702 W/m^2, then the cancer count does not increase. However since the interval includes 1, daily sunlight average doesnt have a significant affect, while proportion of white people does include zero, suggesting a significant affect.
+ANSWERS Q1) Here we can see that if the proportion of white people increases by 0.112, the cancer count will increase by 14.9%. We can also see that if the daily sunlight average increases by 1630.702 W/m^2, then the cancer count does not increase. However since the interval includes 1, daily sunlight average doesnt have a significant affect, while proportion of white people does include zero, suggesting a significant affect.
 
 ```{r inference_risk_trends}
 set.seed(1)
@@ -245,7 +246,7 @@ ggplot(time.trends, aes(x = factor(year), y = Median, group=1)) +
     scale_y_continuous(name = "Risk") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
 ```
-This is the posterior distribution of average risk per year, with 95% CI intervals. While the intervals are large (questionably so), the trend is consistent, with significant chance from 2003-2004, then staing relatively consistant from 2003 onwards
+THIS ANSWERS TEMPORAL TREND IN RISK PART OF Q2) This is the posterior distribution of average risk per year, with 95% CI intervals. While the intervals are large (questionably so), the trend is consistent, with significant chance from 2003-2004, then staing relatively consistant from 2003 onwards
 
 ```{r inference_map_preparation}
 set.seed(1)
@@ -291,19 +292,4 @@ leaflet(data=residuals2011_us_data) %>%
               opacity = 1, title="PEP") %>%
     addScaleBar(position="bottomleft")
 ```
-
-```{r inference_risk}
-set.seed(1)
-
-#### Compute the median risk for each area
-risk.median <- apply(risk.samples.combined, 2, median)
-inequality <- tapply(risk.median, data.ordered$year, IQR)
-ggplot(data.frame(inequality, year=names(inequality)), aes(x = factor(year), y = inequality, group=1)) +
-    geom_line(col="red") + 
-    scale_x_discrete(name = "Year", 
-                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
-                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +    
-    scale_y_continuous(name = "Inequality") + 
-    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
-```
-
+THE ABOVE TWO MAPS HELP ANSWER THE SPATIAL DISTRIBUTION OF Q2) we can see that the chance of skin cancer risk increasing by 1 is higher in areas with already high risk while areas with lower risk have a lower chance.
