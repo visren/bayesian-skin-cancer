@@ -1,6 +1,8 @@
 ---
 title: "data_analysis"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 date: "2024-12-08"
 ---
 
@@ -157,14 +159,14 @@ data.ordered <- arrange(data.temp, year, spatialorder)
 
 #Uncomment to rerun chains if needed
 
-# chain1 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
-# chain2 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
-# chain3 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+chain1 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+chain2 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
+chain3 <- ST.CARar(formula=cancer_count~ sunlight_daily_avg + proportion_white, family="poisson", data=data.ordered, W=W, burnin=200000, n.sample=2200000, thin=1000, verbose=FALSE, AR = 1)
 # 
 # 
-# saveRDS(chain1, file = here("analysis", "chain1.rds"))
-# saveRDS(chain2, file = here("analysis", "chain2.rds"))
-# saveRDS(chain3, file = here("analysis", "chain3.rds"))
+saveRDS(chain1, file = here("analysis", "chain1.rds"))
+saveRDS(chain2, file = here("analysis", "chain2.rds"))
+saveRDS(chain3, file = here("analysis", "chain3.rds"))
 
 ```
 
@@ -190,9 +192,7 @@ print(chain1)
 print(chain2)
 print(chain3)
 ```
-Looking at the trace plots, we can see that we have roughly consistent variation and no trend from the first to final samples in each plot. Also, based on the gelman rubin statistics, we see our two covariates "proportion white" and "sunlight daily average" have point estimates and upper CI of less than 1.1 suggesting convergence.
 
-To then determine if sunlight or proportion white have a significant affect on skin cancer, we can look and see if our uncertainty intervals (2.5%-97.5%) encapsulate zero. We can see that both variables have zero within their intervals, suggesting that both variables have a significant influence on skin cancer.Rho.S is low suggesting low spatial correlation, while Rho.t is close to one, suggesting that there is a temporal correlation. These findings are reflected across all three chains.
 
 
 ## Inference
@@ -211,7 +211,6 @@ round(quantile(exp(sd(data.ordered$cancer_count) * beta.samples.combined[ ,2]), 
 round(quantile(exp(sd(data.ordered$sunlight_daily_avg) * beta.samples.combined[ ,3]), c(0.5, 0.025, 0.975)),3)
 ```
 
-ANSWERS Q1) Here we can see that if the proportion of white people increases by 0.112, the cancer count will increase by 14.9%. We can also see that if the daily sunlight average increases by 1630.702 W/m^2, then the cancer count does not increase. However since the interval includes 1, daily sunlight average doesnt have a significant affect, while proportion of white people does include zero, suggesting a significant affect.
 
 ```{r inference_risk_trends}
 set.seed(1)
@@ -246,7 +245,7 @@ ggplot(time.trends, aes(x = factor(year), y = Median, group=1)) +
     scale_y_continuous(name = "Risk") + 
     theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold")) 
 ```
-THIS ANSWERS TEMPORAL TREND IN RISK PART OF Q2) This is the posterior distribution of average risk per year, with 95% CI intervals. While the intervals are large (questionably so), the trend is consistent, with significant chance from 2003-2004, then staing relatively consistant from 2003 onwards
+
 
 ```{r inference_map_preparation}
 set.seed(1)
@@ -292,4 +291,4 @@ leaflet(data=residuals2011_us_data) %>%
               opacity = 1, title="PEP") %>%
     addScaleBar(position="bottomleft")
 ```
-THE ABOVE TWO MAPS HELP ANSWER THE SPATIAL DISTRIBUTION OF Q2) we can see that the chance of skin cancer risk increasing by 1 is higher in areas with already high risk while areas with lower risk have a lower chance.
+
