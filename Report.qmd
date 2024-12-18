@@ -15,7 +15,6 @@ As a first step, we decided to conduct EDA on the dataset and visualize the basi
 
 Plotting spatially averaged boxplots of the 3 variables, we make the following observation. Daily sunlight remains virtually the same throughout the years, which is expected due to the constancy of the climate during this short period. Overall cancer rates have also remained relatively unchanged throughout this period, and the overall fraction of population identifying as white has also remained relatively stable throughout this period. However, there are outliers across all years, which may be very impactful in a spatio-temporal context, which is what the method we've adopted attempts to capture.
 
-
 ## Question 1
 
 ### Impact of sunlight and diversity on skin cancer risk across the U.S.
