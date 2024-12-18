@@ -15,6 +15,50 @@ As a first step, we decided to conduct EDA on the dataset and visualize the basi
 
 Plotting spatially averaged boxplots of the 3 variables, we make the following observation. Daily sunlight remains virtually the same throughout the years, which is expected due to the constancy of the climate during this short period. Overall cancer rates have also remained relatively unchanged throughout this period, and the overall fraction of population identifying as white has also remained relatively stable throughout this period. However, there are outliers across all years, which may be very impactful in a spatio-temporal context, which is what the method we've adopted attempts to capture.
 
+```{r combined_plots, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(here)
+
+data <- readRDS(here("data","data_full.rds"))
+data <- filter(data, year>=2003)
+
+# Plot 1: Daily average sunlight
+p1 <- ggplot(data, aes(x = factor(year), y = sunlight_daily_avg)) +
+    geom_boxplot(fill="red", alpha=0.7) + 
+    labs(title = "Boxplot of daily average sunlight") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = expression(paste("Daily Sunlight Average (W/m"^"2)"))) + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+# Plot 2: Cancer count
+p2 <- ggplot(data, aes(x = factor(year), y = cancer_count)) +
+    geom_boxplot(fill="blue", alpha=0.7) + 
+    labs(title = "Boxplot of cancer count") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = expression(paste("Cancer count per 10,000 people"))) + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+# Plot 3: Proportion white
+p3 <- ggplot(data, aes(x = factor(year), y = proportion_white)) +
+    geom_boxplot(fill="green", alpha=0.7) + 
+    labs(title = "Boxplot of proportion white") + 
+    scale_x_discrete(name = "Year", 
+                     breaks=c(2003, 2004, 2005, 2006, 2007 ,2008, 2009, 2010, 2011), 
+                     labels=c("2003", "2004", "2005", "2006", "2007" , "2008", "2009", "2010", "2011")) +
+    scale_y_continuous(name = "Proportion of population \nthat are white") + 
+    theme(text=element_text(size=16), plot.title=element_text(size=18, face="bold"))
+
+# Print the plots
+print(p1)
+print(p2)
+print(p3)
+
+```
+
 ## Question 1
 
 ### Impact of sunlight and diversity on skin cancer risk across the U.S.
@@ -42,7 +86,7 @@ We ran 3 MCMC chains, each with the following specifications: 2200000 samples, w
 
 #### Convergence diagnostics
 
-We checked convergence diagnostics by both examaning traceplots and producing Gelman-Rubin statistics.
+We checked convergence diagnostics by both examining traceplots and producing Gelman-Rubin statistics.
 
 #### Credible intervals
 
